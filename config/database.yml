@@ -29,3 +29,4 @@ production:
   password:
   pool: 5
   template: template0
+  url: <%= ENV['DATABASE_URL'] %>
