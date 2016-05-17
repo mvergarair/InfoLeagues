@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LigaFC</title>
+  <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">   -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script> -->
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
+	<%= render partial: "layouts/header" %>
+	<%= render partial: "layouts/drawer" %>
+	<main class="mdl-layout__content">
+    	<div class="page-content"><%= yield %></div>
+  	</main>
+	</div>
+</body>
+	<%= javascript_include_tag 'material-modal.min' %>
+</html>

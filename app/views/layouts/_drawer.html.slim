@@ -1,0 +1,82 @@
+.mdl-layout__drawer
+  = link_to leagues_path , method: :get
+    = image_tag 'dark-logo.png', style: 'margin: 2em 10px 0.3em 10px'
+    span.mdl-layout-title Bienvenido al primer Club de Ligas amateur de Chile.
+  .filter-container
+    .btm-brd
+      h4
+        i.material-icons filter_list
+        span.m-1em Busca tu liga
+      /.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label style=
+        input.mdl-textfield__input type="text" id="sample3"
+        label.mdl-textfield__label for="sample3"
+          span Busque ligas
+    nav.mdl-navigation
+      .word-menu#days
+        span.small-flex
+          i.material-icons today
+          span.m-1em
+            | Día
+        i.material-icons.align-right arrow_drop_down
+      .items-drop
+        -[:lunes, :martes, :miercoles, :jueves, :sábado, :domingo].each do |day|
+          label.mdl-checkbox.mdl-js-checkbox for=("checkbox #{day}")
+            input.mdl-checkbox__input type="checkbox" id=("checkbox #{day}") checked= "true"
+            span.mdl-checkbox__label 
+              = day.capitalize
+      .word-menu
+        span.small-flex
+          i.material-icons map
+          span.m-1em
+            | Sector
+        i.material-icons.align-right arrow_drop_down
+      .word-menu
+        span.small-flex
+          i.material-icons accessibility
+          span.m-1em
+            | Cantidad de Jugadores
+        i.material-icons.align-right arrow_drop_down
+      .items-drop
+        -[5,6,7,8,9,10,11].each do |amount_of_players| 
+          label.mdl-checkbox.mdl-js-checkbox for=("checkbox #{amount_of_players}")
+            input.mdl-checkbox__input type="checkbox" id=("checkbox #{amount_of_players}") checked= "true"
+            span.mdl-checkbox__label 
+              = amount_of_players
+      .word-menu
+        span.small-flex
+          i.material-icons attach_money
+          span.m-1em
+            | Precio
+        i.material-icons.align-right arrow_drop_down
+      .items-drop
+        input.mdl-slider.mdl-js-slider#price-slider max="600" min="0" tabindex="0" type="range" value="600" 
+        .slider-price
+          span 
+            | Hasta CLP $
+            span#price
+              | 600
+            | .000
+      .word-menu-non.modal__trigger data-modal='#advanced-modal'
+        span.small-flex
+          i.material-icons timeline
+          span.m-1em
+            | Avanzado
+.modal.modal__bg#advanced-modal
+  .modal__dialog
+    .modal__content
+      .modal__header
+        .modal__title
+          h2.modal__title-text.m-1em
+            i.material-icons timeline
+            span.m-1em Filtro Avanzado
+        /span.mdl-button.mdl-button--icon.mdl-js-button.modal__close
+          i.material-icons close
+      .modal__text
+        h1
+          | Proximamente
+      .modal__footer
+        a.mdl-button.mdl-button--colored.mdl-js-button.modal__close
+          | Close
+
+
+

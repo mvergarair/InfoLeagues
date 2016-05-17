@@ -1,0 +1,18 @@
+header.mdl-layout__header
+  .mdl-layout__header-row
+  	.search-div.small-flex
+  		.spin
+  			.mdl-spinner.mdl-js-spinner.is-active
+  		.search-icon
+  			i.material-icons search
+        = form_tag leagues_path, method: 'get', enforce_utf8: false
+          = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
+  	.left-header
+  		a href="https://www.facebook.com/ligafcapp"
+  			i class="fa fa-facebook" aria-hidden="true"
+  		a href="https://www.instagram.com/liga_fc/"
+  			i class="fa fa-instagram" aria-hidden="true"
+  		i class="fa fa-twitter" aria-hidden="true"
+
+  		/= image_tag 'logo-icon.png', style: 'max-width: 30px;'
+  

@@ -1,0 +1,206 @@
+// Place all the styles related to the leagues controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "colors";
+
+.m-r03em{
+  margin-right: 0.3em;
+}
+
+.mdl-layout__content{
+  background-color: #F2F2F2;
+}
+
+.page-content{
+  padding: 2em 5em;
+  font-weight: 100;
+  // background-color: #F2F2F2;
+  .large-card{
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    border-radius: 4px;
+    margin-bottom: 2em;
+    background-color: #FFFFFF;
+
+
+    .card-toolbar{
+      display: flex;
+      height: 64px;
+      padding: 0 1em;
+      border-radius: 3px 3px 0 0;
+      align-items: center;
+      background-color: $blue-color;
+      justify-content: space-between;
+      color: white;
+      h3{
+
+      }
+      .toolbar-icons{
+        .material-icons{
+          margin-right: 0.3em;
+        }
+      }
+    }
+
+    .card-body{
+      
+      .material-icons{
+        color: grey;
+      }
+
+      padding: 1em;
+
+      .card-top {
+        display:flex;
+
+        .card-image{
+          flex: 1;
+          padding-right: 1em;
+          border-right: 1px solid grey;
+          img{
+            max-width: 100%;
+          }
+        }
+        .card-info{
+          padding: 0em 1em 0em 1em;
+          flex: 2;
+          .section{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.8em;
+            .days{
+              display: flex;
+              align-items: center;
+              .info-span{
+                font-size: 1.6em;
+                color: grey;
+                font-weight: 100;
+                .day{
+                  margin-left: 0.3em;
+                  // font-size: 1.6em;
+                  padding: 0.5em 0.5em;
+                  cursor: pointer;
+                  // border: 1px solid grey;
+                  border-radius: 2px;
+                  &:hover{
+                    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+                    border-bottom: 2px solid $dark-blue-color;
+                    -webkit-transition: all 200ms ease-in;
+                    -webkit-transform: scale(1.2);
+                    -ms-transition: all 100ms ease-in;
+                    -ms-transform: scale(1.2);   
+                    -moz-transition: all 100ms ease-in;
+                    -moz-transform: scale(1.2);
+                    transition: all 100ms ease-in;
+                    transform: scale(1.2);
+                  }
+                }
+              }
+            }
+            .powered-by{
+              max-width: 20%;
+              .text{
+                font-size: 0.6em;
+                color:grey;
+              }
+              img {
+                max-width: 100%;
+              }
+            }
+            .players{
+              display: flex;
+              align-items: center;
+              .info-span{
+                color: grey;
+                font-size: 1.6em;
+              }
+              .player-amount{
+                margin-left: 0.3em;
+
+              }
+            }
+
+            .location{
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              .info-span{
+                color: grey;
+                font-size: 1.6em;
+              }
+
+            }
+          }
+        }
+      }
+
+      .card-bottom{
+
+      }
+
+    }
+
+    .card-footer{
+
+    }
+  }
+}
+
+
+// tablet screen
+@media screen and (max-width: 1024px){
+  .page-content{
+    padding: 2em 2em;
+  	.large-card{
+      .card-body{
+        .card-top{
+          // flex-wrap: wrap;
+          .card-image{
+            // flex: 0 1 auto;
+            // border: none;
+            // padding-right: 0px;  
+          }
+          .card-info{
+            // flex: 0 1 auto;
+          }
+        }
+      }
+
+  	}	
+  }
+}
+// phone screen
+@media screen and (max-width: 680px){
+  .page-content{
+    padding: 2em 2em;
+    .large-card{
+      .card-body{
+        .card-top{
+          flex-wrap: wrap;
+          .card-image{
+            flex: 0 1 auto;
+            border-right: none;
+            border-bottom: 1px solid grey;
+            padding-right: 0px;  
+            padding-bottom: 3px;  
+          }
+          .card-info{
+            flex: 0 1 auto;
+            padding-top: 1em;
+            .text{
+              line-height: 10px;
+            }
+            .top-section{
+              .days{
+                .info-span{
+                  font-size: 1.2em;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    } 
+  }
+}

@@ -1,0 +1,42 @@
+- @leagues.each do |league|
+  	.large-card
+      .card-toolbar
+        h4
+          = league.name		
+        .toolbar-icons
+          i.material-icons thumb_up
+          i.material-icons more_vert
+      .card-body
+        .card-top
+          .card-image
+            a href=("http://www.#{league.website_link}")
+              img src=(league.logo)
+          .card-info
+            .section style='margin-bottom: 0.1em;'
+              .days
+                i.material-icons.m-r03em today
+                span.info-span
+                  | Días:  
+                .small-flex.info-span
+                  - league.days_played.each do |day_played|
+                    .day id=("day-#{initial_letter_day(day_played)}")
+                      = initial_letter_day(day_played)
+              - if league.uses_liga_fc
+                .powered-by
+                  .text
+                    span
+                      | powered by:
+                  = image_tag 'dark-logo copy.png'
+            .section
+              .players
+                i.material-icons.m-r03em accessibility
+                span.info-span Jugadores en cancha:
+                - league.amount_of_players.each do |a|
+                  span.player-amount.info-span
+                    = a
+            .section
+              .location
+                i.material-icons.m-r03em location_on
+                span.info-span
+                  = league.location
+        .card-bottom
