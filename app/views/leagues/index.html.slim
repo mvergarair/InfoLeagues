@@ -38,5 +38,5 @@
               .location
                 i.material-icons.m-r03em location_on
                 span.info-span
-                  = league.location
+                  = league.location.nil? ? "No disponible" : league.location
         .card-bottom

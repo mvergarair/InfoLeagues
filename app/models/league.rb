@@ -39,6 +39,8 @@ class League < ActiveRecord::Base
 	end
 
 	def location
-		self.cups.first.location.name
+		if self.cups.count > 0
+			self.cups.first.location.name
+		end
 	end
 end
