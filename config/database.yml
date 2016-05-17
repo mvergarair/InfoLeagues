@@ -25,3 +25,7 @@ production:
   adapter: postgresql
   host: localhost
   encoding: unicode
+  username: info-leagues
+  password:
+  pool: 5
+  template: template0
