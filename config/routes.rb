@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   
+  devise_for :users
   namespace :admin do
     resources :leagues
     resources :cups
     resources :counties
     resources :locations
+    resources :users,  except: [:new]
 
     root to: "leagues#index"
   end

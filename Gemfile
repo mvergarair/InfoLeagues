@@ -35,6 +35,7 @@ gem 'twitter'
 gem 'font-awesome-sass'
 gem 'pg'
 gem 'rails_12factor'
+gem 'devise'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

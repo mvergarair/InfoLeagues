@@ -9,22 +9,6 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
-//= require jquery
-//= require jquery_ujs
-//= require jquery-ui/autocomplete
-//= require turbolinks
-//= require material
-//= require drawer
-//= require header
-//= require_tree .
-//= require autocomplete-rails
 
-$('document').ready(function() {
-  setTimeout(function() {
-    $('.notice').slideUp();
-  }, 3000);
-  setTimeout(function() {
-    $('.alert').slideUp();
-  }, 3000);
-});
+//= require material
+
