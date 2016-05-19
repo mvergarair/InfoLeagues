@@ -28,6 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'geocoder'
 gem 'paperclip'
+gem 'aws-sdk', '~> 2.3'
 gem 'administrate'
 gem "browserify-rails"
 gem 'slim'
