@@ -9,8 +9,8 @@
       .card-body
         .card-top
           .card-image
-            a href=("http://www.#{league.website_link}")
-              img src=(league.logo)
+            a href=("http://#{league.website_link}")
+              = image_tag league.logo.url
           .card-info
             .section style='margin-bottom: 0.1em;'
               .days

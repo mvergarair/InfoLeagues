@@ -22,3 +22,5 @@
 /public/stylesheets/compiled
 /public/system/*
 /config/secrets.yml
+
+.DS_Store
