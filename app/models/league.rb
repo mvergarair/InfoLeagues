@@ -43,4 +43,8 @@ class League < ActiveRecord::Base
 			self.cups.first.location.name
 		end
 	end
+
+	def has_day(day)
+		
+	end
 end
