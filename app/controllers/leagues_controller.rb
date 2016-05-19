@@ -3,11 +3,14 @@ class LeaguesController < ApplicationController
 	autocomplete :league, :name, full: true, limit: 10, extra_data: [:phone]
 
 	def index
-		@leagues = League.all.sort_by{ |league| league.uses_liga_fc ? 0 : 1 }
+		@leagues = League.all
 
 		if params[:search]
 			@leagues = @leagues.where( name: params[:search])
 		end
+
+		@leagues = @leagues.sort_by{ |league| league.uses_liga_fc ? 0 : 1 }
+
 	end
 
 	def twitter_search
