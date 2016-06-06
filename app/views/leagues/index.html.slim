@@ -1,6 +1,6 @@
 - @leagues.each do |league|
   	.large-card
-      .card-toolbar
+      /.card-toolbar
         h4
           = league.name		
         .toolbar-icons
@@ -9,9 +9,18 @@
       .card-body
         .card-top
           .card-image
-            a href=("http://#{league.website_link}")
+            a href=("#{standerdize_url(league.website_link)}")
               = image_tag league.logo.url
           .card-info
+            .section
+              h3
+                =league.name
+              - if league.uses_liga_fc
+                .powered-by
+                  .text
+                    span
+                      | powered by:
+                  = image_tag 'dark-logo copy.png'
             .section style='margin-bottom: 0.1em;'
               .days
                 i.material-icons.m-r03em today
@@ -21,12 +30,6 @@
                   - league.days_played.each do |day_played|
                     .day id=("day-#{initial_letter_day(day_played)}")
                       = initial_letter_day(day_played)
-              - if league.uses_liga_fc
-                .powered-by
-                  .text
-                    span
-                      | powered by:
-                  = image_tag 'dark-logo copy.png'
             .section
               .players
                 i.material-icons.m-r03em accessibility
@@ -40,3 +43,9 @@
                 span.info-span
                   = league.location.nil? ? "No disponible" : league.location
         .card-bottom
+
+
+<!-- Colored FAB button with ripple -->
+/button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect dark-blue-color"
+  i.material-icons style="color: white;"
+    | filter_list

@@ -8,7 +8,7 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  sign_in_count          :integer          default("0"), not null
+#  sign_in_count          :integer          default(0), not null
 #  current_sign_in_at     :datetime
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string
@@ -18,7 +18,7 @@
 #  first_name             :string
 #  last_name              :string
 #  phone                  :string
-#  role                   :integer          default("0")
+#  role                   :integer          default(0)
 #
 
 require 'test_helper'

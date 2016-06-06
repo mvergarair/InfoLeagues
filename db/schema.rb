@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518150818) do
+ActiveRecord::Schema.define(version: 20160530201233) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -28,13 +28,16 @@ ActiveRecord::Schema.define(version: 20160518150818) do
     t.integer  "league_id"
     t.integer  "location_id"
     t.integer  "day"
-    t.integer  "price"
     t.string   "prize"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.datetime "start_date"
     t.datetime "end_date"
-    t.integer  "amount_of_players", default: 7
+    t.integer  "amount_of_players",  default: 7
+    t.string   "bases_file_name"
+    t.string   "bases_content_type"
+    t.integer  "bases_file_size"
+    t.datetime "bases_updated_at"
   end
 
   add_index "cups", ["league_id"], name: "index_cups_on_league_id"
@@ -70,6 +73,17 @@ ActiveRecord::Schema.define(version: 20160518150818) do
   end
 
   add_index "locations", ["county_id"], name: "index_locations_on_county_id"
+
+  create_table "price_options", force: :cascade do |t|
+    t.string   "comment"
+    t.integer  "price"
+    t.integer  "preinscription_price"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.integer  "cup_id"
+  end
+
+  add_index "price_options", ["cup_id"], name: "index_price_options_on_cup_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

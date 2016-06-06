@@ -18,4 +18,14 @@ module LeaguesHelper
 			"D"
 		end
 	end
+
+	def standerdize_url (url)
+		if  (url[0..3] != 'http')
+			if url[0..2] == 'www'
+				return "http://" + url
+			end
+			return "http://www." + url
+		end
+		return url
+	end
 end

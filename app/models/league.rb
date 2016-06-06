@@ -16,7 +16,7 @@
 #  facebook_link     :string
 #  instagram_link    :string
 #  twitter_link      :string
-#  uses_liga_fc      :boolean          default("f")
+#  uses_liga_fc      :boolean          default(FALSE)
 #
 
 class League < ActiveRecord::Base

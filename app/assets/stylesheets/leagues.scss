@@ -13,6 +13,14 @@
 }
 
 .page-content{
+    .mdl-button--fab{
+    position: fixed;
+    bottom: 45px;
+    right: 45px;
+    &:hover{
+      background-color: lighten($dark-blue-color, 10);
+    }
+  }
   padding: 2em 5em;
   font-weight: 100;
   // background-color: #F2F2F2;
@@ -52,6 +60,7 @@
 
       .card-top {
         display:flex;
+        align-items: center;
 
         .card-image{
           flex: 1;
@@ -64,38 +73,42 @@
         .card-info{
           padding: 0em 1em 0em 1em;
           flex: 2;
+          .info-span{
+            font-size: 1em;
+            color: grey;
+            font-weight: 100;
+          }
           .section{
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.8em;
+            align-items: center;
             .days{
               display: flex;
               align-items: center;
-              .info-span{
-                font-size: 1.6em;
-                color: grey;
-                font-weight: 100;
-                .day{
-                  margin-left: 0.3em;
-                  // font-size: 1.6em;
-                  padding: 0.5em 0.5em;
-                  cursor: pointer;
-                  // border: 1px solid grey;
-                  border-radius: 2px;
-                  &:hover{
-                    box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
-                    border-bottom: 2px solid $dark-blue-color;
-                    -webkit-transition: all 200ms ease-in;
-                    -webkit-transform: scale(1.2);
-                    -ms-transition: all 100ms ease-in;
-                    -ms-transform: scale(1.2);   
-                    -moz-transition: all 100ms ease-in;
-                    -moz-transform: scale(1.2);
-                    transition: all 100ms ease-in;
-                    transform: scale(1.2);
-                  }
+              .day{
+                margin-left: 0.3em;
+                // font-size: 1.6em;
+                padding: 0.5em 0.5em;
+                cursor: pointer;
+                // border: 1px solid grey;
+                border-radius: 2px;
+                &:hover{
+                  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+                  border-bottom: 2px solid $dark-blue-color;
+                  -webkit-transition: all 200ms ease-in;
+                  -webkit-transform: scale(1.2);
+                  -ms-transition: all 100ms ease-in;
+                  -ms-transform: scale(1.2);   
+                  -moz-transition: all 100ms ease-in;
+                  -moz-transform: scale(1.2);
+                  transition: all 100ms ease-in;
+                  transform: scale(1.2);
                 }
               }
+            }
+            h3 {
+              margin: 0 0 0 0;
             }
             .powered-by{
               max-width: 20%;
@@ -110,24 +123,16 @@
             .players{
               display: flex;
               align-items: center;
-              .info-span{
-                color: grey;
-                font-size: 1.6em;
-              }
-              .player-amount{
-                margin-left: 0.3em;
+            }
+            .player-amount{
+              margin-left: 0.3em;
 
-              }
             }
 
             .location{
               display: flex;
               align-items: center;
               cursor: pointer;
-              .info-span{
-                color: grey;
-                font-size: 1.6em;
-              }
 
             }
           }
@@ -145,6 +150,7 @@
     }
   }
 }
+
 
 
 // tablet screen

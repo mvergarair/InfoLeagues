@@ -12,12 +12,12 @@ class CupDashboard < Administrate::BaseDashboard
     location: Field::BelongsTo,
     id: Field::Number,
     day: EnumField,
-    # day: Field::String.with_options(searchable: true),
-    price: Field::Number,
+    price_options: Field::NestedHasMany.with_options(skip: :cup_id),
     amount_of_players: Field::Number,
     prize: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
+    bases: FileField
   }
 
   # COLLECTION_ATTRIBUTES
@@ -39,7 +39,7 @@ class CupDashboard < Administrate::BaseDashboard
     :location,
     :id,
     :day,
-    :price,
+    :price_options,
     :prize,
   ]
 
@@ -51,8 +51,9 @@ class CupDashboard < Administrate::BaseDashboard
     :location,
     :day,
     :amount_of_players,
-    :price,
+    :price_options,
     :prize,
+    :bases
   ]
 
   # Overwrite this method to customize how cups are displayed

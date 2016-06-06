@@ -1,11 +1,11 @@
 //= require jquery
+//= require cocoon
 //= require jquery_ujs
 //= require selectize
 //= require moment
 //= require datetime_picker
 //= require_tree .
 
-var dat;
 //facebook API
 window.fbAsyncInit = function() {
   FB.init({
@@ -28,11 +28,30 @@ var ready = function() {
     var setNameInputBlurHandler = function(){
       $('#league_name').blur(function (argument) {
 
+        //google call (for website_url)
+        var googleCall = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + $('#league_name').val() ;
+        $.ajax({
+          url: googleCall,
+          dataType: 'jsonp',
+          context: document.body,
+          success: function(data){
+            console.log(data);
+            $('#league_website_link').val(data.data[0].username);
+            $('#website_link').attr("href",  data.data[0].username);
+          },
+          error: function(data){
+            console.log(data);
+
+          } 
+        });
+
+
         //facebook call
         var urlCall = "/search?q="+ $('#league_name').val() + "&type=page&access_token=1756018021309970|ddll514iir8TI0cmv1oGlWijkO4";
         FB.api(urlCall, function(response) {
           if(response.data.length != 0){
             $('#league_facebook_link').val("https://www.facebook.com/" + response.data[0].id);
+            $('#facebook_link').attr("href", "https://www.facebook.com/" + response.data[0].id);
           }
         });
 
@@ -44,6 +63,7 @@ var ready = function() {
           context: document.body,
           success: function(data){
             $('#league_instagram_link').val("https://www.instagram.com/" + data.data[0].username);
+            $('#instagram_link').attr("href","https://www.instagram.com/" + data.data[0].username);
           }
         });
 
@@ -55,17 +75,14 @@ var ready = function() {
           data: {
             "query" : $('#league_name').val()
           },
-          dataType: 'jsonp',
+          dataType: 'json',
           contentType: "application/json; charset=utf-8",
           context: document.body,
           success: function(data){
-            console.log("data");
-            console.log(data);
-            dat=data;
+            $('#league_twitter_link').val('https://www.twitter.com/' + data[0].screen_name);
+            $('#twitter_link').attr("href", 'https://www.twitter.com/' + data[0].screen_name);
           },
           error: function(data){
-            console.log(data);
-            console.log("eerrasd");
           }
         });
       })
