@@ -78,10 +78,16 @@
             color: grey;
             font-weight: 100;
           }
+          .mdl-tabs__panel{
+            padding: 0.4em;
+          }
+          img.raty-cancel {
+            display: none;
+          }
           .section{
             display: flex;
             justify-content: space-between;
-            margin-bottom: 0.8em;
+            margin-bottom: 0.2em;
             align-items: center;
             .days{
               display: flex;
@@ -157,7 +163,7 @@
 @media screen and (max-width: 1024px){
   .page-content{
     padding: 2em 2em;
-  	.large-card{
+    .large-card{
       .card-body{
         .card-top{
           // flex-wrap: wrap;
@@ -172,7 +178,7 @@
         }
       }
 
-  	}	
+    } 
   }
 }
 // phone screen

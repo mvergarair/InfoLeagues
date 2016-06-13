@@ -1,11 +1,5 @@
 - @leagues.each do |league|
-  	.large-card
-      /.card-toolbar
-        h4
-          = league.name		
-        .toolbar-icons
-          i.material-icons thumb_up
-          i.material-icons more_vert
+    .large-card
       .card-body
         .card-top
           .card-image
@@ -22,26 +16,24 @@
                       | powered by:
                   = image_tag 'dark-logo copy.png'
             .section style='margin-bottom: 0.1em;'
-              .days
-                i.material-icons.m-r03em today
-                span.info-span
-                  | Días:  
-                .small-flex.info-span
-                  - league.days_played.each do |day_played|
-                    .day id=("day-#{initial_letter_day(day_played)}")
-                      = initial_letter_day(day_played)
-            .section
-              .players
-                i.material-icons.m-r03em accessibility
-                span.info-span Jugadores en cancha:
-                - league.amount_of_players.each do |a|
-                  span.player-amount.info-span
-                    = a
-            .section
-              .location
-                i.material-icons.m-r03em location_on
-                span.info-span
-                  = league.location.nil? ? "No disponible" : league.location
+              .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+                .mdl-tabs__tab-bar style='justify-content: flex-start'
+                  - league.sorted_cups.each_with_index do |cup, i|
+                    a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel")
+                        = cup.day.capitalize
+                - league.sorted_cups.each_with_index do |cup, i|
+                    .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
+                      .section
+                        .players
+                          i.material-icons.m-r03em accessibility
+                          span.info-span 
+                            | Jugadores en cancha:
+                            = cup.amount_of_players
+                      .section
+                        .location
+                          i.material-icons.m-r03em location_on
+                          span.info-span
+                            = cup.location.name
         .card-bottom
 
 
