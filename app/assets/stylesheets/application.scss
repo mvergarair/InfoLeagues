@@ -371,6 +371,18 @@
 }
 
 
+.rate{
+	display: flex;
+
+	.rating{
+		margin-left: 0.4em; margin-top: 2px; font-size: 1.1em;
+	}
+
+	.rate-star{
+		font-size: 1.5em;
+	}
+}
+
 
 @media screen and (max-width: 1024px){
 	

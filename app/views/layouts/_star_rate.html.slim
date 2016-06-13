@@ -1,0 +1,20 @@
+.rate style='cursor: pointer;' data-rate=("#{rating}") data-id=("#{resource}")
+	- i = 0
+	- rating.to_i.times do ||
+		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")  
+			| star
+		- i += 1
+	- if ((rating % 1) != 0)
+		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")
+			| star_half
+		- i += 1
+	- (5 - i).times do ||
+		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")
+			| star_border
+		- i += 1
+	span.rating
+		= rating
+
+
+
+	

@@ -19,6 +19,7 @@
 //= require header
 //= require_tree .
 //= require autocomplete-rails
+//= require rating
 
 $('document').ready(function() {
   setTimeout(function() {

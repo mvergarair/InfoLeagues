@@ -15,12 +15,17 @@
                     span
                       | powered by:
                   = image_tag 'dark-logo copy.png'
+            = render 'layouts/star_rate', rating: 2.3, resource: league.name
             .section style='margin-bottom: 0.1em;'
               .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
-                .mdl-tabs__tab-bar style='justify-content: flex-start'
+                .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
                   - league.sorted_cups.each_with_index do |cup, i|
-                    a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel")
+                    a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel") id=("#{cup.id}")
                         = cup.day.capitalize
+                  i.material-icons id=("#{league.id}tt") style='font-size: 1.1em;'
+                    | help 
+                  .mdl-tooltip for=("#{league.id}tt")
+                      | Los días que se juega la liga
                 - league.sorted_cups.each_with_index do |cup, i|
                     .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
                       .section
@@ -36,6 +41,28 @@
                             = cup.location.name
         .card-bottom
 
+
+<!-- Rate Modal -->
+.modal.modal__bg#rate-modal
+  .modal__dialog
+    .modal__content
+      .modal__header
+        .modal__title
+          h1.modal__title-text.m-1em
+            i.material-icons style='color: grey'
+              | star
+            span.m-1em Califique la Liga
+      .modal__text
+        p
+          | Califique la liga segun rating, infraestructura, ambiente etc. prlaj; lsdlk fj;aslkdj f;laksdj f;asdkj f
+        h5
+          | Rating
+        = render 'layouts/star_rate', rating: 0, resource: 'modal'
+        h5 Comentario
+
+      .modal__footer
+        a.mdl-button.mdl-button--colored.mdl-js-button.modal__close
+          | Close
 
 <!-- Colored FAB button with ripple -->
 /button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect dark-blue-color"
