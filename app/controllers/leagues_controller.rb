@@ -4,6 +4,7 @@ class LeaguesController < ApplicationController
 
 	def index
 		@leagues = League.all
+		@rating = Rating.new
 
 		if params[:search]
 			@leagues = @leagues.where( name: params[:search])

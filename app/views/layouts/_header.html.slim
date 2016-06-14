@@ -10,9 +10,10 @@ header.mdl-layout__header
         = form_tag leagues_path, method: 'get', enforce_utf8: false
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
   	.left-header
-  		a href="https://www.facebook.com/ligafcapp"
-  			i class="fa fa-facebook" aria-hidden="true"
-  		a href="https://www.instagram.com/liga_fc/"
-  			i class="fa fa-instagram" aria-hidden="true"
+  		span style='color: white; font-weight: 100; font-size: 1.1em;'
+          - if user_signed_in? 
+            = current_user.full_name
+          - else
+            | Iniciar sessión
         
   

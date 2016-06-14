@@ -72,7 +72,7 @@
         }
         .card-info{
           padding: 0em 1em 0em 1em;
-          flex: 2;
+          flex: 1;
           .info-span{
             font-size: 1em;
             color: grey;
@@ -132,14 +132,17 @@
             }
             .player-amount{
               margin-left: 0.3em;
-
             }
 
             .location{
               display: flex;
               align-items: center;
               cursor: pointer;
-
+            }
+            .level{
+              .small-flex{
+                margin-bottom: 0.1em;
+              }
             }
           }
         }

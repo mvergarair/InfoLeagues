@@ -15,19 +15,27 @@
                     span
                       | powered by:
                   = image_tag 'dark-logo copy.png'
-            = render 'layouts/star_rate', rating: 2.3, resource: league.name
+            = render 'layouts/star_rate', rating: league.my_rating, resource: league, resource_type: :league
             .section style='margin-bottom: 0.1em;'
               .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
                 .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
                   - league.sorted_cups.each_with_index do |cup, i|
                     a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel") id=("#{cup.id}")
                         = cup.day.capitalize
-                  i.material-icons id=("#{league.id}tt") style='font-size: 1.1em;'
+                  i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
                     | help 
-                  .mdl-tooltip for=("#{league.id}tt")
+                  .mdl-tooltip for=("#{league.id}tt-league")
                       | Los días que se juega la liga
                 - league.sorted_cups.each_with_index do |cup, i|
                     .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
+                      .section
+                        .level
+                          .small-flex
+                            span.info-span id=("#{cup.id}tt-cup")
+                              | Nivel de juego:
+                            .mdl-tooltip for=("#{cup.id}tt-cup") 
+                                | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
+                          = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
                       .section
                         .players
                           i.material-icons.m-r03em accessibility
@@ -57,7 +65,7 @@
           | Califique la liga segun rating, infraestructura, ambiente etc. prlaj; lsdlk fj;aslkdj f;laksdj f;asdkj f
         h5
           | Rating
-        = render 'layouts/star_rate', rating: 0, resource: 'modal'
+        /= render 'layouts/star_rate', rating: 0, resource: 'modal', resource_type: :league, resou
         h5 Comentario
 
       .modal__footer

@@ -1,20 +1,23 @@
-.rate style='cursor: pointer;' data-rate=("#{rating}") data-id=("#{resource}")
-	- i = 0
-	- rating.to_i.times do ||
-		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")  
-			| star
-		- i += 1
-	- if ((rating % 1) != 0)
-		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")
-			| star_half
-		- i += 1
-	- (5 - i).times do ||
-		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource}")
-			| star_border
-		- i += 1
-	span.rating
-		= rating
-
-
-
-	
+= form_for @rating, remote: true, html: {id: "#{resource.id}-rating-form"}
+  =hidden_field :rating, :grade
+  =hidden_field :rating, :resource_type , value: resource_type
+  =hidden_field :rating, :resource_id , value: resource.id
+  .rate  data-rate=("#{rating}") data-id=("#{resource.name}") data-disable=("#{resource.has_rated?(current_user)}")
+  	- i = 0
+  	- rating.to_i.times do ||
+  		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource.name}")  
+  			| star
+  		- i += 1
+  	- if ((rating % 1) != 0)
+  		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource.name}")
+  			| star_half
+  		- i += 1
+  	- (5 - i).times do ||
+  		i.material-icons.rate-star data-star-number=("#{i}") data-star-id=("#{resource.name}")
+  			| star_border
+  		- i += 1
+    .user-rating
+      span.rating id=("#{resource.id}-user-rating-ttp")
+  		  = resource.has_rated?(current_user) ? "(tu ranking: #{resource.user_rating(current_user).grade})" : '(no has evaluado esta liga)'
+      .mdl-tooltip for=("#{resource.id}-user-rating-ttp")
+        = "#{resource.amount_of_ratings} evaluaciones"

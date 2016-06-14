@@ -48,6 +48,26 @@ class League < ActiveRecord::Base
 		end
 	end
 
+	def my_rating
+		rating = Rating.where(resource_id: self.id, resource_type: :league).average(:grade)
+		if rating == nil
+			rating = 0
+		end
+		return rating
+	end
+
+	def amount_of_ratings
+		Rating.where(resource_id: self.id, resource_type: :league).count
+	end
+
+	def has_rated? (current_user)
+		Rating.where(resource_id: self.id , resource_type: :league, user: current_user).first != nil
+	end
+
+	def user_rating(current_user)
+		Rating.where(resource_id: self.id , resource_type: :league, user: current_user).first
+	end
+
 	def has_day(day)
 		
 	end

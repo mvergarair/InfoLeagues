@@ -373,9 +373,13 @@
 
 .rate{
 	display: flex;
+	align-items: center;
+	cursor: pointer;	
 
 	.rating{
-		margin-left: 0.4em; margin-top: 2px; font-size: 1.1em;
+		margin-left: 0.7em; margin-top: 2px; font-size: 0.7em;
+		color: grey;
+		cursor: auto;
 	}
 
 	.rate-star{
