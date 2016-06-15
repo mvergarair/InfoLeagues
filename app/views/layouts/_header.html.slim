@@ -14,6 +14,6 @@ header.mdl-layout__header
           - if user_signed_in? 
             = current_user.full_name
           - else
-            | Iniciar sessión
+            = link_to 'Iniciar sessión', new_user_session_path
         
   

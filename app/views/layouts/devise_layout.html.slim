@@ -5,17 +5,32 @@ html
     link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" 
     link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,700,700italic' rel='stylesheet' type='text/css'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true 
+    = stylesheet_link_tag    'devise', media: 'all', 'data-turbolinks-track' => true 
     = javascript_include_tag 'devise'
     = csrf_meta_tags 
     meta content="width=device-width, initial-scale=1.0" name="viewport" 
   body 
-    .main
-      .devise-image
+    .container
+      .top
+        .mdl-grid
+          .mdl-cell.mdl-cell--3-col.mdl-cell--1-col-tablet.mdl-cell--hide-phone
+          .mdl-cell.mdl-cell--6-col
+            = image_tag 'dark-logo.png'
+            br
+            span.welcome Bienvenido al primer club de ligas amateur de Chile          
+      .bottom
+        .mdl-grid
+          .mdl-cell.mdl-cell--3-col.mdl-cell--1-col-tablet.mdl-cell--hide-phone
+          .mdl-cell.mdl-cell--6-col
+            = yield
+          /.mdl-cell.mdl-cell--2-col.mdl-cell--hide-tablet.mdl-cell--hide-phone
+          /.mdl-cell.mdl-cell--8-col
+            
+      /.devise-image
         =image_tag 'dark-logo copy.png', style: 'width: 100%;'
-      - if flash[:notice]
+      /- if flash[:notice]
         p.notice 
           = notice 
-      - if flash[:alert]
+      /- if flash[:alert]
         p.alert 
           = alert 
-      = yield 
