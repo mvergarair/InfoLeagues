@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: ratings
+#
+#  id            :integer          not null, primary key
+#  user_id       :integer
+#  resource_type :string
+#  resource_id   :integer
+#  resource_attr :string
+#  created_at    :datetime         not null
+#  updated_at    :datetime         not null
+#  grade         :float
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  resource_type: MyString
+  resource_id: 1
+  resource_attr: MyString
+
+two:
+  user_id: 
+  resource_type: MyString
+  resource_id: 1
+  resource_attr: MyString
