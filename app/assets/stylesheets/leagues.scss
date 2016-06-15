@@ -60,19 +60,21 @@
 
       .card-top {
         display:flex;
-        align-items: center;
+        align-items: stretch;
 
         .card-image{
-          flex: 1;
+          flex: 2;
           padding-right: 1em;
           border-right: 1px solid grey;
+          display: flex;
+          align-items: center;
           img{
             max-width: 100%;
           }
         }
         .card-info{
-          padding: 0em 1em 0em 1em;
-          flex: 1;
+          padding: 0em 1em 0em 1.5em;
+          flex: 3;
           .info-span{
             font-size: 1em;
             color: grey;

@@ -27,7 +27,7 @@ class League < ActiveRecord::Base
 	has_many :cups
 
 	def sorted_cups
-		self.cups.sort_by {|cup| cup.day}
+		self.cups.order(:day) 
 	end
 
 	def logo_url
