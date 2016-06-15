@@ -1,0 +1,26 @@
+# == Schema Information
+#
+# Table name: price_options
+#
+#  id                   :integer          not null, primary key
+#  comment              :string
+#  price                :integer
+#  preinscription_price :integer
+#  created_at           :datetime         not null
+#  updated_at           :datetime         not null
+#  cup_id               :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cup_id: 
+  comment: MyString
+  price: 1
+  preinscription_price: 1
+
+two:
+  cup_id: 
+  comment: MyString
+  price: 1
+  preinscription_price: 1
