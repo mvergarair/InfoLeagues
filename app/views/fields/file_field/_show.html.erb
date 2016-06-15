@@ -1,5 +1,5 @@
 <% if field.data.present? %>
-  <%= link_to field.data.original_filename, admin_download_attachment_path(model: field.data.instance.class.name, id: field.data.instance.id, attribute: field.data.name) %>
+  <%= link_to field.data.original_filename, download_attachment_path(model: field.data.instance.class.name, id: field.data.instance.id, attribute: field.data.name) %>
 <% else %>
   No disponible
 <% end %>

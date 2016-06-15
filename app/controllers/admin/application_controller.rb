@@ -20,6 +20,8 @@ module Admin
       end
     end
 
+    
+
     def check_permission
       permitted_controllers = [:leagues, :cups]
       permitted_actions = [:index ,:new, :show, :create, :edit, :update]

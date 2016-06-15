@@ -6,9 +6,11 @@ By default, the sidebar contains navigation links
 for all resources in the admin dashboard,
 as defined by the routes in the `admin/` namespace
 %>
+<div style="margin-top: 2em;">
+  <%= image_tag 'dark-logo copy.png'%>
+</div>
 
 <ul class="sidebar__list">
-	<%= image_tag 'dark-logo copy.png', style: 'margin-top: 2em;' %>
   <% Administrate::Namespace.new(namespace).resources.each do |resource| %>
     <li>
       <%= link_to(
@@ -18,6 +20,5 @@ as defined by the routes in the `admin/` namespace
       ) %>
     </li>
   <% end %>
-  <br>
-  <%= link_to 'Cerrar sessión', destroy_user_session_path,method: :delete %>
+  <%= link_to 'Cerrar sessión', destroy_user_session_path, method: :delete, class: 'sidebar__link'%>
 </ul>

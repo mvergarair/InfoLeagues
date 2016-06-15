@@ -12,7 +12,7 @@ class CupDashboard < Administrate::BaseDashboard
     location: Field::BelongsTo,
     id: Field::Number,
     day: EnumField,
-    price_options: Field::NestedHasMany.with_options(skip: :cup_id),
+    price_options: Field::NestedHasMany.with_options(skip: :cup),
     amount_of_players: Field::Number,
     prize: Field::String,
     created_at: Field::DateTime,
@@ -41,6 +41,7 @@ class CupDashboard < Administrate::BaseDashboard
     :day,
     :price_options,
     :prize,
+    :bases
   ]
 
   # FORM_ATTRIBUTES
@@ -59,7 +60,7 @@ class CupDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how cups are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(cup)
-  #   "Cup ##{cup.id}"
-  # end
+  def display_resource(cup)
+    "Cup #{cup.day.capitalize}"
+  end
 end

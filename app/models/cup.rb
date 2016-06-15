@@ -20,6 +20,8 @@ class Cup < ActiveRecord::Base
   has_many :price_options
   accepts_nested_attributes_for :price_options
   has_attached_file :bases
+	validates_attachment_content_type :bases, :content_type => ['application/pdf', 'application/msword', 'text/plain']
+
 
   enum day: [:lunes, :martes, :miercoles, :jueves, :viernes, :sabado, :domingo]
 

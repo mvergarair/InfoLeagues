@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
     root to: "leagues#index"
   end
+  get 'file/:model/:id/:attribute', to: 'application#download_attachment', as: 'download_attachment'
 
   root 'leagues#index'
   resources :counties, only: [:index]
