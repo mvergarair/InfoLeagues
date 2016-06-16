@@ -10,10 +10,10 @@ header.mdl-layout__header
         = form_tag leagues_path, method: 'get', enforce_utf8: false
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
   	.left-header
-  		span style='color: white; font-weight: 100; font-size: 1.1em;'
+  		span style='color: white; font-weight: 300; font-size: 1em; font-family: "Roboto"'
           - if user_signed_in? 
             = current_user.full_name
           - else
-            = link_to 'Iniciar sessión', new_user_session_path
+            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
         
   

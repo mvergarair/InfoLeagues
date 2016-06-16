@@ -15,7 +15,7 @@
 	<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
 	<%= render partial: "layouts/header" %>
 	<%= render partial: "layouts/drawer" %>
-	<main class="mdl-layout__content">
+  	<main class="mdl-layout__content">
       <% if flash[:notice] %>
         <p class="notice"><%= notice %></p>
       <% end %>
@@ -25,6 +25,10 @@
     	<div class="page-content"><%= yield %></div>
   	</main>
 	</div>
+  <div aria-live="assertive" aria-atomic="true" aria-relevant="text" class="mdl-snackbar mdl-js-snackbar">
+    <div class="mdl-snackbar__text"></div>
+    <button type="button" class="mdl-snackbar__action"></button>
+  </div>
 </body>
 	<%= javascript_include_tag 'material-modal.min' %>
 </html>
