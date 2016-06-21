@@ -15,6 +15,6 @@ class PriceOption < ActiveRecord::Base
   belongs_to :cup
 
 	def self.max_price
-    PriceOption.maximum(:price)    
+	    PriceOption.maximum(:price)    
   end
 end
