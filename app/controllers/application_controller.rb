@@ -2,13 +2,29 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
-  
+  before_filter :check_query_params
 
   layout :layout_by_resource
 
   def download_attachment
       redirect_to params[:model].titleize.constantize.find(params[:id]).send(params[:attribute]).expiring_url(10)
+  end
+
+  def check_query_params
+    @days = {}
+    @day_down = false
+    Cup.days.each do |day|
+      @days[day[0].to_sym] = false
+    end
+    if params[:search]
+      if params[:day]
+        @day_down = true
+        query_days = params[:day].split(',').map{ |day| day.to_sym}
+        query_days.each do |day|
+          @days[day] = true
+        end
+      end
+    end
   end
 
   protected

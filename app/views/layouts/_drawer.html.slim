@@ -12,23 +12,32 @@
         label.mdl-textfield__label for="sample3"
           span Busque ligas
     nav.mdl-navigation
+      /span.small-flex
+          i.material-icons today
+          span.m-1em
+            | Usa LigaFC
+          label.mdl-checkbox.mdl-js-checkbox for='uses-ligafc-chk'
+            input.mdl-checkbox__input id='uses-ligafc-chk'
       .word-menu#days
         span.small-flex
           i.material-icons today
           span.m-1em
             | Día
         i.material-icons.align-right arrow_drop_down
-      .items-drop
-        -[:lunes, :martes, :miercoles, :jueves, :sábado, :domingo].each do |day|
-          label.mdl-checkbox.mdl-js-checkbox for=("checkbox #{day}")
-            input.mdl-checkbox__input type="checkbox" id=("checkbox #{day}") checked= "true"
+      .items-drop style=(@day_down ? 'display: block' : '')
+        -@days.each do |day|
+          label.mdl-checkbox.mdl-js-checkbox.day-lab for=("checkbox_#{day[0]}")
+            - if day[1] == true
+              input.mdl-checkbox__input.day-checkbox.checked-day type="checkbox" id=("checkbox_#{day[0]}") checked='' 
+            - else 
+              input.mdl-checkbox__input.day-checkbox type="checkbox" id=("checkbox_#{day[0]}") 
             span.mdl-checkbox__label 
-              = day.capitalize
+              = day[0].capitalize
       .word-menu
         span.small-flex
           i.material-icons map
           span.m-1em
-            | Sector
+            | Comuna
         i.material-icons.align-right arrow_drop_down
       .word-menu
         span.small-flex
@@ -39,7 +48,7 @@
       .items-drop
         -[5,6,7,8,9,10,11].each do |amount_of_players| 
           label.mdl-checkbox.mdl-js-checkbox for=("checkbox #{amount_of_players}")
-            input.mdl-checkbox__input type="checkbox" id=("checkbox #{amount_of_players}") checked= "true"
+            input.mdl-checkbox__input.amount-checkbox type="checkbox" id=("checkbox #{amount_of_players}") 
             span.mdl-checkbox__label 
               = amount_of_players
       .word-menu
@@ -53,8 +62,8 @@
         .slider-price
           span 
             | Hasta CLP $
-            span#price
-              | 600
+            span#price-span
+              = PriceOption.max_price / 1000
             | .000
       .word-menu-non.modal__trigger data-modal='#advanced-modal'
         span.small-flex

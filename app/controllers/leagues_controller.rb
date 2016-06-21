@@ -6,9 +6,16 @@ class LeaguesController < ApplicationController
 		@leagues = League.all
 		@rating = Rating.new
 
-		if params[:search]
+		#day params
+		if not (params[:day] == nil or params[:day] == '')
+			@leagues = @leagues.where(id: Cup.where(day: day_array(params[:day].split(','))).map{|cup| cup.league.id})
+		end
+
+
+		if not (params[:search] == '' or params[:search] == nil)
 			@leagues = @leagues.where( name: params[:search])
 		end
+
 
 		@leagues = @leagues.sort_by{ |league| league.uses_liga_fc ? 0 : 1 }
 
@@ -24,5 +31,13 @@ class LeaguesController < ApplicationController
 
 		search = client.user_search(params[:query]) 
 		render json: search
+	end
+
+	def day_array array
+		return_array = []
+		array.each do |day|
+			return_array << Cup.days[day]
+		end
+		return return_array
 	end
 end

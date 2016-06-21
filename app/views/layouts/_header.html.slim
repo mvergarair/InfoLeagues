@@ -7,13 +7,18 @@ header.mdl-layout__header
   			.mdl-spinner.mdl-js-spinner.is-active
   		.search-icon
   			i.material-icons search
-        = form_tag leagues_path, method: 'get', enforce_utf8: false
+        = form_tag leagues_path, method: 'get', enforce_utf8: false, id: 'search_form'
+          = hidden_field_tag :day
+          = hidden_field_tag :sector
+          = hidden_field_tag :amount_of_players
+          = hidden_field_tag :price
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
   	.left-header
-  		span style='color: white; font-weight: 300; font-size: 1em; font-family: "Roboto"'
+  		span style='color: white; font-weight: 200; font-size: 1em; font-family: "Roboto"'
           - if user_signed_in? 
-            = current_user.full_name
+            = current_user.first_name
+            = image_tag current_user.profile_image_url, style: 'max-width: 30px; border-radius: 100%; margin-left: 10px;'
           - else
-            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
+            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 200;'
         
   

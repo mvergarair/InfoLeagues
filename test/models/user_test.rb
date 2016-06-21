@@ -19,6 +19,13 @@
 #  last_name              :string
 #  phone                  :string
 #  role                   :integer          default(0)
+#  image_file_name        :string
+#  image_content_type     :string
+#  image_file_size        :integer
+#  image_updated_at       :datetime
+#  provider               :string
+#  uid                    :string
+#  profile_image_url      :string
 #
 
 require 'test_helper'

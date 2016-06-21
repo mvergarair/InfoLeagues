@@ -21,10 +21,20 @@
             </label>  
           <% end %>          
           <br>
-          <%= render "devise/shared/links" %>
+          <div style="text-align: center;">
+            <%= render "devise/shared/links" %>
+          </div>
       </div>
-      <div class="mdl-card__supporting-text" >
-        
+      <div class="mdl-card__supporting-text second"  >
+        <p>Ingresa con su red social favorita:</p>
+        <div class="fb-button">
+          <i class="fa fa-facebook" aria-hidden="true" style="margin-right: 1em; color: white; font-size: 1.2em;"></i>
+          <%= link_to "Ingresar con Facebook", user_omniauth_authorize_path(:facebook)%>
+        </div>
+        <div class="google-button">
+          <i class="fa fa-google-plus" aria-hidden="true" style="margin-right: 0.7em; color: white; font-size: 1.2em;"></i>
+          <%= link_to "Ingresar con Google", user_omniauth_authorize_path(:facebook)%>
+        </div>
       </div>  
       <div class="mdl-card__actions mdl-card--border">
         <%= f.button "Log in", class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect' %>

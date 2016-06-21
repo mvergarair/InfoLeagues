@@ -33,6 +33,41 @@
 					color: #607d8b;
     				font-weight: 300;
 				}
+				.fb-button{
+					background-color: #3f5aa6;
+					border-radius: 2px;
+					padding: 1em 1em 1em 1em;
+					margin-bottom: 1em;
+					font-family: 'Lucida Grande', 'Roboto';
+					cursor: pointer;
+
+					&:hover{
+						background-color: darken(#3f5aa6, 10)
+					}
+					a{
+						text-decoration: none;
+						color: white;
+						font-size: 1.1em;
+						font-weight: 300;
+					} 
+				}
+				.google-button{
+					background-color: #d34836;
+					border-radius: 2px;
+					padding: 1em 1em 1em 1em;
+					font-family:  'Roboto';
+					cursor: pointer;
+
+					&:hover{
+						background-color: darken(#d34836, 10)
+					}
+					a{
+						text-decoration: none;
+						color: white;
+						font-size: 1.1em;
+						font-weight: 400;
+					} 
+				}
 			}
 			.devise-link{
 				text-decoration: none;
@@ -49,10 +84,30 @@
 
 @media screen and (max-width: 479px){
 	.container{
+		.top{
+			.welcome{
+				font-size: 1em;
+			}
+		}
 		.bottom{
 			.mdl-card{
 				.mdl-card__supporting-text{
 		            flex: 0 1 auto;
+		            // order: 1;
+				}
+				.second{
+					// margin-top: 0px;
+					padding-bottom: 1em;
+					border-bottom: 1px solid #ededed;
+					margin-left: 16px;
+					padding-left: 0px;
+					margin-right: 16px;
+					padding-right: 0px;
+					order: -1;
+					p{
+						margin: 0.6em 0;
+						font-size: 1.1em;
+					}
 				}
 				.border-right{
 					border-right: none;
