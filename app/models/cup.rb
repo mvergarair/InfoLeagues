@@ -53,4 +53,7 @@ class Cup < ActiveRecord::Base
 		Rating.where(resource_id: self.id , resource_type: :cup, user: current_user).first
 	end
 
+	def min_price
+		self.price_options.minimum(:price)
+	end
 end

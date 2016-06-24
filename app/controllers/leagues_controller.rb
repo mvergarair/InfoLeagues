@@ -6,12 +6,25 @@ class LeaguesController < ApplicationController
 		@leagues = League.all
 		@rating = Rating.new
 
-		#day params
+		#day filter
 		if not (params[:day] == nil or params[:day] == '')
 			@leagues = @leagues.where(id: Cup.where(day: day_array(params[:day].split(','))).map{|cup| cup.league.id})
+			# @leagues = @leagues.joins(:cups).where('cups.day in ?' , day_array(params[:day].split(','))  )
 		end
 
+		#sector sector filter
 
+		#amount of players filter
+		if not (params[:amount_of_players] == nil or params[:amount_of_players] == '')
+			@leagues = @leagues.where(id: Cup.where(amount_of_players: params[:amount_of_players].split(',')).map{|cup| cup.league.id})
+		end
+
+		#price filter
+		if params[:price] != nil and params[:price] != ''
+			@leagues = @leagues.where(id: Cup.where(min_price:  params[:price]).map { |cup| cup.league.id})
+		end
+
+		#name filter
 		if not (params[:search] == '' or params[:search] == nil)
 			@leagues = @leagues.where( name: params[:search])
 		end
@@ -33,11 +46,12 @@ class LeaguesController < ApplicationController
 		render json: search
 	end
 
-	def day_array array
+	def day_array (array)
 		return_array = []
 		array.each do |day|
 			return_array << Cup.days[day]
 		end
 		return return_array
 	end
+
 end

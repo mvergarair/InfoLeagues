@@ -14,11 +14,11 @@ header.mdl-layout__header
           = hidden_field_tag :price
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
   	.left-header
-  		span style='color: white; font-weight: 200; font-size: 1em; font-family: "Roboto"'
+  		span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"'
           - if user_signed_in? 
             = current_user.first_name
             = image_tag current_user.profile_image_url, style: 'max-width: 30px; border-radius: 100%; margin-left: 10px;'
           - else
-            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 200;'
+            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
         
   

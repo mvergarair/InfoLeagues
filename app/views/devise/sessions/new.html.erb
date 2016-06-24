@@ -3,6 +3,16 @@
     <div class="mdl-card__title">
       <h2 class="mdl-card__title-text" style="color: #fff">Inicie Sessión</h2>
     </div>
+    <% if flash[:notice] %>
+      <p class="notice">
+        <%= notice %>
+      </p>
+    <% end %>
+    <% if flash[:alert] %>
+      <p class="alert">
+        <%= alert %>
+      </p>
+    <% end %>
     <div style="display: flex; flex-wrap: wrap">
       <div class="mdl-card__supporting-text border-right"  >
           <%= devise_error_messages! %>

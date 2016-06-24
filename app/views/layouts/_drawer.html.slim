@@ -45,12 +45,15 @@
           span.m-1em
             | Cantidad de Jugadores
         i.material-icons.align-right arrow_drop_down
-      .items-drop
-        -[5,6,7,8,9,10,11].each do |amount_of_players| 
-          label.mdl-checkbox.mdl-js-checkbox for=("checkbox #{amount_of_players}")
-            input.mdl-checkbox__input.amount-checkbox type="checkbox" id=("checkbox #{amount_of_players}") 
+      .items-drop style=(@aop_down ? 'display: block' : '')
+        - @aops.each do |aop|
+          label.mdl-checkbox.mdl-js-checkbox.aop-lab for=("checkbox_#{aop[0]}")
+            - if aop[1] == true
+              input.mdl-checkbox__input.amount-checkbox.checked-aop type="checkbox" id=("checkbox_#{aop[0]}") checked=''
+            - else 
+              input.mdl-checkbox__input.amount-checkbox type="checkbox" id=("checkbox_#{aop[0]}")             
             span.mdl-checkbox__label 
-              = amount_of_players
+              = aop[0]
       .word-menu
         span.small-flex
           i.material-icons attach_money
@@ -58,7 +61,7 @@
             | Precio
         i.material-icons.align-right arrow_drop_down
       .items-drop
-        input.mdl-slider.mdl-js-slider#price-slider max="600" min="0" tabindex="0" type="range" value="600" 
+        input.mdl-slider.mdl-js-slider#price-slider max=("#{PriceOption.max_price / 1000}") min="0" tabindex="0" type="range" value="600" 
         .slider-price
           span 
             | Hasta CLP $

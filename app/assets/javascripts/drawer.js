@@ -1,7 +1,7 @@
 var ready = function() {
 
 	var daysArray =[];
-	var playersArray =[];
+	var aopArray =[];
 
 	function dropDownInit() {
 		$('.word-menu').click(function(){
@@ -20,27 +20,48 @@ var ready = function() {
 			$('#price-span').text($(this).val());
 			$('#price').val($(this).val());
 		});
+		$('#price-slider').mouseup(function(){
+			$('#search_form').submit();
+		});
 	}
 
 	function handleDayChange(){
 		$('.checked-day').each(function (){
 			daysArray.push($(this).attr('id').split('_')[1]);
-
+			$('#day').val(daysArray);
 		});
 		$('.day-lab').mousedown(function(){
-			var dayToBeAdded = $(this).children().first().attr('id').split('_')[1]
+			var dayToBeAdded = $(this).children().first().attr('id').split('_')[1];
 			if (daysArray.indexOf(dayToBeAdded) == -1){
-				daysArray.push(dayToBeAdded)
+				daysArray.push(dayToBeAdded);
 			}else{
-				daysArray.splice( daysArray.indexOf(dayToBeAdded) , 1)
+				daysArray.splice( daysArray.indexOf(dayToBeAdded) , 1);
 			}
 			$('#day').val(daysArray);
 			$('#search_form').submit();
 		});
 	}
 
+	function handleAmountPlayersChange(){
+		$('.checked-aop').each(function(){
+			aopArray.push($(this).attr('id').split('_')[1]);
+			$('#amount_of_players').val(aopArray);
+		});
+		$('.aop-lab').mousedown(function() {
+			var aopToBeAdded = $(this).children().first().attr('id').split('_')[1];
+			if (aopArray.indexOf(aopToBeAdded) == -1){
+				aopArray.push(aopToBeAdded);
+			}else{
+				aopArray.splice( aopArray.indexOf(aopToBeAdded) , 1);
+			}
+			$('#amount_of_players').val(aopArray);
+			$('#search_form').submit();
+		});
+	}
+
 	
 	handleDayChange();
+	handleAmountPlayersChange();
 	dropDownInit();
 	sliderChangeHandler();
 };
