@@ -37,31 +37,33 @@
                                 | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
                           = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
                       .small-flex style='flex-wrap: wrap; justify-content: space-between'
-                        .section
-                          .players
-                            i.material-icons.m-r03em accessibility
-                            span.info-span 
-                              | Jugadores en cancha: 
-                              = cup.amount_of_players
-                        .section
-                          .price-div
-                            i.material-icons attach_money
-                            span.info-span
-                              | Precio inscripción: 
-                              = clp_format(league.min_price)
-                      .small-flex style='flex-wrap: wrap; justify-content: space-between'
-                        .section
-                          .location
-                            i.material-icons.m-r03em location_on
-                            span.info-span
-                              = cup.location.name
-                        .section
-                          .half-time
-                            i.material-icons.m-r03em timer
-                            span.info-span
-                              | Tiempo de juego: 
-                              = cup.half_time * 2
-                              |  minutos 
+                        .item-info
+                          .section
+                            .players
+                              i.material-icons.m-r03em accessibility
+                              span.info-span 
+                                | Jugadores en cancha: 
+                                b
+                                  = cup.amount_of_players
+                          .section
+                            .location
+                              i.material-icons.m-r03em location_on
+                              span.info-span
+                                = cup.location.name
+                        .item-info
+                          .section
+                            .price-div
+                              i.material-icons attach_money
+                              span.info-span
+                                | Precio inscripción: 
+                                b = clp_format(league.min_price)
+                          .section
+                            .half-time
+                              i.material-icons.m-r03em timer
+                              span.info-span
+                                | Tiempo de juego: 
+                                b = cup.half_time * 2
+                                |  minutos 
         .card-bottom
 
 
