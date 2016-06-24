@@ -15,6 +15,7 @@ class CupDashboard < Administrate::BaseDashboard
     price_options: Field::NestedHasMany.with_options(skip: :cup),
     amount_of_players: Field::Number,
     prize: Field::String,
+    half_time: Field::Number,
     created_at: Field::DateTime,
     updated_at: Field::DateTime,
     bases: FileField
@@ -41,6 +42,7 @@ class CupDashboard < Administrate::BaseDashboard
     :day,
     :price_options,
     :prize,
+    :half_time,
     :bases
   ]
 
@@ -54,6 +56,7 @@ class CupDashboard < Administrate::BaseDashboard
     :amount_of_players,
     :price_options,
     :prize,
+    :half_time,
     :bases
   ]
 

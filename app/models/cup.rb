@@ -16,6 +16,7 @@
 #  bases_content_type :string
 #  bases_file_size    :integer
 #  bases_updated_at   :datetime
+#  half_time          :integer
 #
 
 class Cup < ActiveRecord::Base

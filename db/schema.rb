@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624151811) do
+ActiveRecord::Schema.define(version: 20160624205754) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20160624151811) do
     t.string   "bases_content_type"
     t.integer  "bases_file_size"
     t.datetime "bases_updated_at"
+    t.integer  "half_time"
   end
 
   add_index "cups", ["league_id"], name: "index_cups_on_league_id"

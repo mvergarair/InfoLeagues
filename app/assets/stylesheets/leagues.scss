@@ -140,6 +140,11 @@
               align-items: center;
               margin-left: 0.3em;
             }
+            .half-time{
+              display: flex;
+              align-items: center;
+              margin-left: 0.3em; 
+            }
             .location{
               display: flex;
               align-items: center;
@@ -220,6 +225,9 @@
             }
             .section {
               .price-div{
+                margin-left: 0px;
+              }
+              .half-time{
                 margin-left: 0px;
               }
             }

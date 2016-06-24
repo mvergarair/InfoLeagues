@@ -49,11 +49,19 @@
                             span.info-span
                               | Precio inscripción: 
                               = clp_format(league.min_price)
-                      .section
-                        .location
-                          i.material-icons.m-r03em location_on
-                          span.info-span
-                            = cup.location.name
+                      .small-flex style='flex-wrap: wrap; justify-content: space-between'
+                        .section
+                          .location
+                            i.material-icons.m-r03em location_on
+                            span.info-span
+                              = cup.location.name
+                        .section
+                          .half-time
+                            i.material-icons.m-r03em timer
+                            span.info-span
+                              | Tiempo de juego: 
+                              = cup.half_time * 2
+                              |  minutos 
         .card-bottom
 
 
