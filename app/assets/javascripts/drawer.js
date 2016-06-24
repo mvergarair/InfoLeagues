@@ -18,7 +18,7 @@ var ready = function() {
 	function sliderChangeHandler(){
 		$("#price-slider").on("input change", function() {
 			$('#price-span').text($(this).val());
-			$('#price').val($(this).val());
+			$('#price').val($(this).val() * 1000);
 		});
 		$('#price-slider').mouseup(function(){
 			$('#search_form').submit();

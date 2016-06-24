@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
   def check_aop_params
     @aops = {}
     @aop_down = false
-    [7,8,9,10,11].each do |aop|
+    [5,6,7,8,9,10,11].each do |aop|
       @aops[aop] = false
     end
     if params[:amount_of_players] and params[:amount_of_players] != ''

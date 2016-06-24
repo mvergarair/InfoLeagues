@@ -19,6 +19,7 @@
 #
 
 class Cup < ActiveRecord::Base
+	after_save :update_min_price
   belongs_to :league
   belongs_to :location
   has_many :price_options
@@ -55,5 +56,18 @@ class Cup < ActiveRecord::Base
 
 	def min_price
 		self.price_options.minimum(:price)
+	end
+
+	def update_min_price
+		self.league.update(min_price: self.price_options.minimum(:price))
+	end
+
+	def price_to_show
+		if self.price_options.count > 0
+			if self.price_options.where(comment: 'Equipo Nuevo').count > 0
+				self.price_options.where(comment: 'Equipo Nuevo').first.price
+			end
+		end
+		return "N/A"
 	end
 end

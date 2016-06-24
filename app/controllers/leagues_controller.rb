@@ -21,7 +21,7 @@ class LeaguesController < ApplicationController
 
 		#price filter
 		if params[:price] != nil and params[:price] != ''
-			@leagues = @leagues.where(id: Cup.where(min_price:  params[:price]).map { |cup| cup.league.id})
+			@leagues = @leagues.where('min_price <= ?' , params[:price].to_i )
 		end
 
 		#name filter

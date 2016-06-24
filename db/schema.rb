@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616164537) do
+ActiveRecord::Schema.define(version: 20160624151811) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20160616164537) do
     t.string   "instagram_link"
     t.string   "twitter_link"
     t.boolean  "uses_liga_fc",      default: false
+    t.integer  "min_price"
   end
 
   create_table "locations", force: :cascade do |t|

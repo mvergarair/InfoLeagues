@@ -25,6 +25,7 @@ class LeagueDashboard < Administrate::BaseDashboard
     logo_content_type: Field::String,
     logo_file_size: Field::Number,
     logo_updated_at: Field::DateTime,
+    min_price: Field::Number
   }
 
   # COLLECTION_ATTRIBUTES
@@ -47,6 +48,7 @@ class LeagueDashboard < Administrate::BaseDashboard
     :email,
     :cups,
     :uses_liga_fc,
+    :min_price,
     :logo_file_name
   ]
 
