@@ -39,6 +39,7 @@ gem 'pg'
 gem 'rails_12factor'
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'browser'
 
 
 # Use ActiveModel has_secure_password

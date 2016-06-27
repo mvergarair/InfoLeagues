@@ -50,9 +50,9 @@ class CupDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :day,
     :league,
     :location,
-    :day,
     :amount_of_players,
     :price_options,
     :prize,

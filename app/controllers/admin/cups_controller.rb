@@ -21,6 +21,12 @@ module Admin
         if params[:league]
             cup.league = League.find(params[:league])
         end
+
+        if cup.league.cups.count >= 1
+            cup = Cup.new(cup.league.cups.first.attributes)
+            cup.day = nil 
+            flash[:alert] = "Asegúrese de cambiar el día de la copa. Si todo lo demás es igual, está listo."
+        end
         render locals: {
             page: Administrate::Page::Form.new(dashboard, cup),
         }
