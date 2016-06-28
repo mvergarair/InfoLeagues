@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :check_day_params ,:check_aop_params
+  before_filter :check_day_params ,:check_aop_params, :counties_to_show
 
   layout :layout_by_resource
 
@@ -37,6 +37,19 @@ class ApplicationController < ActionController::Base
       @aop_down = true
       params[:amount_of_players].split(',').each do |aop|
         @aops[aop.to_i] = true
+      end
+    end
+  end
+
+  def counties_to_show
+    @counties = {}
+    @counties_down = false
+    County.all.each do |county|
+      @counties[county.name] = false
+    end
+    if params[:counties] and params[:counties] != ''
+      params[:counties].split(',').each do |county|
+        @counties[county] = true
       end
     end
   end

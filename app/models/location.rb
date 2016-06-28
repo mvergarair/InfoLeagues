@@ -20,6 +20,7 @@ class Location < ActiveRecord::Base
   geocoded_by :full_address, :latitude  => :lat, :longitude => :lng
   after_validation :geocode
 
+
 	validates :name,  presence: true
   validates :county, presence: true
 

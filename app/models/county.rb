@@ -17,6 +17,9 @@ class County < ActiveRecord::Base
 	geocoded_by :full_location, :latitude  => :lat, :longitude => :lng
 	after_validation :geocode
 
+	default_scope {order(:name)}
+
+
 	validates :name,  presence: true
 	validates :city,  presence: true
 	validates :country,  presence: true

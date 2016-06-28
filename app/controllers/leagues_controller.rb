@@ -12,7 +12,10 @@ class LeaguesController < ApplicationController
 			# @leagues = @leagues.joins(:cups).where('cups.day in ?' , day_array(params[:day].split(','))  )
 		end
 
-		#sector sector filter
+		#county sector filter
+		if params[:county] and params[:county] != ''
+			
+		end
 
 		#amount of players filter
 		if not (params[:amount_of_players] == nil or params[:amount_of_players] == '')

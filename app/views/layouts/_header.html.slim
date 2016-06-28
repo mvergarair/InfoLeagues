@@ -9,7 +9,7 @@ header.mdl-layout__header
   			i.material-icons search
         = form_tag leagues_path, method: 'get', enforce_utf8: false, id: 'search_form'
           = hidden_field_tag :day
-          = hidden_field_tag :sector
+          = hidden_field_tag :county
           = hidden_field_tag :amount_of_players
           = hidden_field_tag :price
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
