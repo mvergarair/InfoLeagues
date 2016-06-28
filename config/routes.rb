@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     get :autocomplete_league_name, :on => :collection
   end
   get :twitter_search, to: 'leagues#twitter_search'
+  get :closest_counties , to: 'counties#closest_counties'
 
 
 end

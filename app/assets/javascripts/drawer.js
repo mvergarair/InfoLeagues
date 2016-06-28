@@ -59,11 +59,23 @@ var ready = function() {
 		});
 	}
 
-	
+	function closestCounties(){
+		var urlID = location.protocol + "/closest_counties";
+        $.ajax({
+          url: urlID,
+          beforeSend: function(xhr) {xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))},
+          dataType: 'json',
+          success: function(data){
+          	console.log(data);
+          }
+        });
+	}
+
 	handleDayChange();
 	handleAmountPlayersChange();
 	dropDownInit();
 	sliderChangeHandler();
+	closestCounties();
 };
 
 $(document).ready(ready);
