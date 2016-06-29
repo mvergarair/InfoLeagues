@@ -39,15 +39,20 @@
           span.m-1em
             | Comuna
         i.material-icons.align-right arrow_drop_down
-      .items-drop 
-        -@counties.each do |county|
-          label.mdl-checkbox.mdl-js-checkbox.aop-lab for=("checkbox_#{county[0]}")
-            - if county[1] == true
-              input.mdl-checkbox__input.amount-checkbox.checked-aop type="checkbox" id=("checkbox_#{county[0]}") checked=''
-            - else 
-              input.mdl-checkbox__input.amount-checkbox type="checkbox" id=("checkbox_#{county[0]}")             
-            span.mdl-checkbox__label 
-              = county[0]
+      .items-drop style=(@county_down ? 'display: block' : '')
+        input.county-search placeholder="Buscar comuna..."
+        .counties
+          -@counties.each do |county|
+            label.mdl-checkbox.mdl-js-checkbox.county-lab.no-check-county for=("checkbox_#{county[0]}")
+              input.mdl-checkbox__input type="checkbox" id=("checkbox_#{county[0]}")             
+              span.mdl-checkbox__label 
+                = county[0]
+        .checked-counties
+          -@counties_checked.each do |county|
+            label.mdl-checkbox.mdl-js-checkbox.county-lab for=("checkbox_#{county[0]}")
+              input.mdl-checkbox__input.checked-county type="checkbox" id=("checkbox_#{county[0]}") checked=''
+              span.mdl-checkbox__label 
+                = county[0]
       .word-menu
         span.small-flex
           i.material-icons accessibility

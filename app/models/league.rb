@@ -18,6 +18,7 @@
 #  twitter_link      :string
 #  uses_liga_fc      :boolean          default(FALSE)
 #  min_price         :integer
+#  county_id         :integer
 #
 
 class League < ActiveRecord::Base
@@ -26,6 +27,7 @@ class League < ActiveRecord::Base
 	validates_attachment_content_type :logo, content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
 
 	has_many :cups
+	belongs_to :county
 
 	def sorted_cups
 		self.cups.order(:day) 

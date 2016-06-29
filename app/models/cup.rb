@@ -20,7 +20,7 @@
 #
 
 class Cup < ActiveRecord::Base
-	after_save :update_min_price
+	after_save :update_min_price, :update_league_county
   belongs_to :league
   belongs_to :location
   has_many :price_options
@@ -70,5 +70,9 @@ class Cup < ActiveRecord::Base
 			end
 		end
 		return "N/A"
+	end
+
+	def update_league_county
+		self.league.update(county: self.location.county)
 	end
 end

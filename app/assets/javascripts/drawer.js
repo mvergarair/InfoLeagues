@@ -2,6 +2,7 @@ var ready = function() {
 
 	var daysArray =[];
 	var aopArray =[];
+	var countyArray =[];
 
 	function dropDownInit() {
 		$('.word-menu').click(function(){
@@ -59,15 +60,51 @@ var ready = function() {
 		});
 	}
 
-	function closestCounties(){
-		
+	function handleCountyChange(){
+		$('.checked-county').each(function(){
+			countyArray.push($(this).attr('id').split('_')[1]);
+			$('#county').val(countyArray);
+		});
+		$('.county-lab').mousedown(function(){
+			var countyToBeAdded = $(this).children().first().attr('id').split('_')[1];
+			if (countyArray.indexOf(countyToBeAdded) == -1){
+				countyArray.push(countyToBeAdded);
+			}else{
+				countyArray.splice( countyArray.indexOf(countyToBeAdded) , 1);
+			}
+			$('#county').val(countyArray);
+			$('#search_form').submit();
+		})
+	}
+
+	function handleCountyFinderChange(){
+		$('.county-search').keyup(function(){
+			console.log('change');
+			if($(this).val().length == 0){
+				console.log('lenght 0')
+				$('.no-check-county').each(function(){
+					$(this).css('display', 'block');
+				});
+				return;	
+			}
+			$('.no-check-county').each(function(){
+				str = $('.county-search').val().toLowerCase();
+				rev = $(this).attr('for').split('_')[1].toLowerCase();
+				if(rev.indexOf(str) == -1){
+					$(this).css('display', 'none');
+				}else{
+					$(this).css('display', 'block');
+				}
+			});
+		});
 	}
 
 	handleDayChange();
 	handleAmountPlayersChange();
 	dropDownInit();
 	sliderChangeHandler();
-	closestCounties();
+	handleCountyChange();
+	handleCountyFinderChange();
 };
 
 $(document).ready(ready);

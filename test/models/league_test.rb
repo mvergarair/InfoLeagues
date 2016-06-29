@@ -18,6 +18,7 @@
 #  twitter_link      :string
 #  uses_liga_fc      :boolean          default(FALSE)
 #  min_price         :integer
+#  county_id         :integer
 #
 
 require 'test_helper'

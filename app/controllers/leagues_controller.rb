@@ -14,7 +14,7 @@ class LeaguesController < ApplicationController
 
 		#county sector filter
 		if params[:county] and params[:county] != ''
-			
+			@leagues = @leagues.where(county: County.where(name: params[:county].split(',')))
 		end
 
 		#amount of players filter

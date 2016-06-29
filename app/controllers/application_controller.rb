@@ -43,13 +43,14 @@ class ApplicationController < ActionController::Base
 
   def counties_to_show
     @counties = {}
-    @counties_down = false
+    @counties_checked = {}
+    @county_down = false
     County.all.each do |county|
-      @counties[county.name] = false
-    end
-    if params[:counties] and params[:counties] != ''
-      params[:counties].split(',').each do |county|
-        @counties[county] = true
+      if params[:county] and params[:county].split(',').include? county.name
+        @counties_checked[county.name] = true
+        @county_down = true
+      else
+        @counties[county.name] = false;
       end
     end
   end

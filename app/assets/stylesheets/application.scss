@@ -78,7 +78,7 @@
 		padding-left: 25px;
 		padding-right: 25px;
 		text-align: right;
-		margin-bottom: 3em;
+		margin-bottom: 1em;
 		color: white;
 	}
 
@@ -180,6 +180,26 @@
 					background-color: grey;
 				}
 			}
+			.county-search{
+				padding: 0.6em 1.5em;
+				background-color: #1E1E1E;
+				border-radius: 3px;
+				width: 82%;
+				border: 1px solid grey;
+				margin: 0.2em 0;
+				font-size: 1.1em;
+    			font-weight: 100;
+				color: white;
+				&:focus{
+					outline: none;
+				}
+			}
+			.counties {
+				height: 100px;
+				overflow: auto;
+				border-bottom: 1px solid grey;
+			}
+			
 
 			.mdl-slider__background-lower{
 				background: #4BA6BF;
