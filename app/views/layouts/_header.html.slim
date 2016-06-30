@@ -13,12 +13,23 @@ header.mdl-layout__header
           = hidden_field_tag :amount_of_players
           = hidden_field_tag :price
           = autocomplete_field_tag 'search', '', autocomplete_league_name_leagues_path, class: 'search-input',placeholder: 'Buscar'
-  	.left-header
-  		span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"'
-          - if user_signed_in? 
+  	.left-header 
+      .icons
+        a href='https://facebook.com/ligafcapp'
+          i.fa.fa-facebook aria-hidden='true' style='font-size: 1.5em;'
+        a href='https://instagram.com/liga_fc'
+          i.fa.fa-instagram aria-hidden='true' style='font-size: 1.5em;'
+      .profile id='menu-lower-left'
+        - if user_signed_in? 
+          span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"' 
             = current_user.first_name
             = image_tag current_user.profile_image_url, style: 'max-width: 30px; border-radius: 100%; margin-left: 10px;'
-          - else
+        - else
+          span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"' 
             = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
+      ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="menu-lower-left" 
+        = link_to  destroy_user_session_path, method: :delete, style: 'text-decoration: none;'
+          li.mdl-menu__item Cerrar Sessión
+
         
   

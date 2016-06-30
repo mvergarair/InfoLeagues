@@ -36,6 +36,21 @@ var ready = function() {
 	});
 
 	$('.rate-star').click(function(){
+		if($(this).parent().attr('data-signed-in')== "false"){
+			console.log('hola');
+			var notification = document.querySelector('.mdl-js-snackbar');
+			var data = {
+			  message: 'Debe iniciar sessión para calificar.',
+			  actionHandler: function(event) {
+			  	var urld =  "http://" + location.host + "/users/sign_in";
+			  	window.location.href = urld;
+			  },
+			  actionText: 'Iniciar Sessión',
+			  timeout: 10000
+			};
+			notification.MaterialSnackbar.showSnackbar(data);
+			return;
+		}
 		if($('#rating_grade').val() == null || $(this).parent().attr('data-disable') == "true"){
 			return;
 		}
@@ -93,6 +108,10 @@ var ready = function() {
 				$('.rate-star[data-star-number="' + i + '"][data-star-id="'+ hoveredResource + '"]').css('color','lightgrey');
 			}	
 		}
+	}
+
+	function handler(){
+		console.log("holaasdf");
 	}
 };
 

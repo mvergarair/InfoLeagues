@@ -2,7 +2,7 @@
   =hidden_field :rating, :grade
   =hidden_field :rating, :resource_type , value: resource_type
   =hidden_field :rating, :resource_id , value: resource.id
-  .rate  data-rate=("#{rating}") data-id=("#{resource.id}") data-disable=("#{resource.has_rated?(current_user)}")
+  .rate  data-rate=("#{rating}") data-id=("#{resource.id}") data-signed-in=("#{user_signed_in?}") data-disable=("#{resource.has_rated?(current_user)}")
   	- i = 0
   	- rating.to_i.times do ||
   		i.fa.fa-futbol-o.rate-star data-star-number=("#{i}") data-star-id=("#{resource.id}") style='color: grey; margin-right: 0.2em;'  

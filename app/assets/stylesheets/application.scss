@@ -96,6 +96,13 @@
 	.hidden{
 		display: none;
 	}
+	.download{
+		margin-top: 80px;
+		margin-left: -10px;
+		display: flex;
+	    justify-content: center;
+	    align-items: center;
+	}
 
 	.filter-container{
 		padding: 0px 15px;
@@ -217,6 +224,9 @@
 }
 
 .mdl-layout__header{
+	.mdl-layout__header--waterfall{
+	    overflow: visible;
+	}
 	background-color: $dark-blue-color;
 	box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
 	min-height: 0;
@@ -286,7 +296,11 @@
 	.left-header{
 		margin-top: -7px;
 		margin-right: 2em;
+		position: relative;
+		display: flex; 
+		align-items: center;
 	    padding: 0.5em;
+	    cursor: pointer;
 		.fa{
 			font-size: 2em;
 			margin: -7px 1em 0 0;
@@ -305,6 +319,9 @@
 		color: white;
 		border-bottom: 1px solid grey;
 	}
+}
+.mdl-layout__header--waterfall{
+    overflow: visible;
 }
 
 
