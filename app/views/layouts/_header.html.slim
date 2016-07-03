@@ -22,14 +22,15 @@ header.mdl-layout__header
       .profile id='menu-lower-left'
         - if user_signed_in? 
           span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"' 
-            = current_user.first_name
+            = current_user.first_name.capitalize  
             = image_tag current_user.profile_image_url, style: 'max-width: 30px; border-radius: 100%; margin-left: 10px;'
         - else
           span style='color: white; font-weight: 300; font-size: 1.1em; font-family: "Roboto"' 
-            = link_to 'Iniciar sessión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
-      ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="menu-lower-left" 
-        = link_to  destroy_user_session_path, method: :delete, style: 'text-decoration: none;'
-          li.mdl-menu__item Cerrar Sessión
+            = link_to 'Iniciar sesión', new_user_session_path, style: 'color: white; text-decoration: none; font-family: "Roboto"; font-weight: 300;'
+      - if user_signed_in?
+        ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect for="menu-lower-left" 
+          = link_to  destroy_user_session_path, method: :delete, style: 'text-decoration: none;'
+            li.mdl-menu__item Cerrar Sesión
 
         
   

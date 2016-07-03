@@ -37,9 +37,11 @@ gem 'twitter'
 gem 'font-awesome-sass'
 gem 'pg'
 gem 'rails_12factor'
+gem 'browser'
+
 gem 'devise'
 gem 'omniauth-facebook'
-gem 'browser'
+gem "omniauth-google-oauth2"
 
 
 # Use ActiveModel has_secure_password

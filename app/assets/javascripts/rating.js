@@ -40,12 +40,12 @@ var ready = function() {
 			console.log('hola');
 			var notification = document.querySelector('.mdl-js-snackbar');
 			var data = {
-			  message: 'Debe iniciar sessión para calificar.',
+			  message: 'Debe iniciar sesión para calificar.',
 			  actionHandler: function(event) {
 			  	var urld =  "http://" + location.host + "/users/sign_in";
 			  	window.location.href = urld;
 			  },
-			  actionText: 'Iniciar Sessión',
+			  actionText: 'Iniciar Sesión',
 			  timeout: 10000
 			};
 			notification.MaterialSnackbar.showSnackbar(data);

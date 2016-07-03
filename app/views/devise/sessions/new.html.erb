@@ -1,7 +1,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="mdl-card mdl-shadow--6dp">
     <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text" style="color: #fff">Inicie Sessión</h2>
+      <h2 class="mdl-card__title-text" style="color: #fff">Inicie Sesión</h2>
     </div>
     <% if flash[:notice] %>
       <p class="notice">
@@ -43,7 +43,7 @@
         </div>
         <div class="google-button">
           <i class="fa fa-google-plus" aria-hidden="true" style="margin-right: 0.7em; color: white; font-size: 1.2em;"></i>
-          <%= link_to "Ingresar con Google", user_omniauth_authorize_path(:facebook)%>
+          <%= link_to "Ingresar con Google", user_google_oauth2_omniauth_authorize_path%>
         </div>
       </div>  
       <div class="mdl-card__actions mdl-card--border">

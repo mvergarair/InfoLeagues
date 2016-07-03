@@ -41,16 +41,16 @@
         i.material-icons.align-right arrow_drop_down
       .items-drop style=(@county_down ? 'display: block' : '')
         input.county-search placeholder="Buscar comuna..."
+        .checked-counties style=(@counties_checked.count >= 1 ? 'border-bottom: 1px solid grey' : '' )
+          -@counties_checked.each do |county|
+            label.mdl-checkbox.mdl-js-checkbox.county-lab for=("checkbox_#{county[0]}")
+              input.mdl-checkbox__input.checked-county type="checkbox" id=("checkbox_#{county[0]}") checked=''
+              span.mdl-checkbox__label 
+                = county[0]
         .counties
           -@counties.each do |county|
             label.mdl-checkbox.mdl-js-checkbox.county-lab.no-check-county for=("checkbox_#{county[0]}")
               input.mdl-checkbox__input type="checkbox" id=("checkbox_#{county[0]}")             
-              span.mdl-checkbox__label 
-                = county[0]
-        .checked-counties
-          -@counties_checked.each do |county|
-            label.mdl-checkbox.mdl-js-checkbox.county-lab for=("checkbox_#{county[0]}")
-              input.mdl-checkbox__input.checked-county type="checkbox" id=("checkbox_#{county[0]}") checked=''
               span.mdl-checkbox__label 
                 = county[0]
       .word-menu
@@ -90,7 +90,7 @@
   .download
     a href='https://play.google.com/store/apps/details?id=cl.kaizengroup.prensaliga&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
       img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/es-419_badge_web_generic.png' style='max-width: 150px'
-    a href='https://google.com'
+    a href='https://itunes.apple.com/cl/app/liga-fc/id1046601010?mt=8'
       = image_tag 'Download_on_the_App_Store_Badge_ES_135x40.svg', style: 'max-width: 150px'
 .modal.modal__bg#advanced-modal
   .modal__dialog
