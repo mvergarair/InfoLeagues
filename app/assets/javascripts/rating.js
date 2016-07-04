@@ -57,21 +57,29 @@ var ready = function() {
 		$(this).parent().parent().submit();
 	})
 
+	$("#modal-comment-close").click(function(){
+		$('#comment-modal').removeClass('modal--active');
+		$('#comment-modal').children().children().first().removeClass('modal__content--active');
+	});
+
 	$('form').bind("ajax:success", function( e , data ) {
 		rateDiv = $(this).children().last();
 		rateDiv.attr('data-disable', 'true');
-		rateDiv.attr('data-rate', data.new_rating);
+		rateDiv.attr('data-rate', data.league_info.val);
 		if(rateDiv.children().first().hasClass('fa-futbol-o')){
-			console.log(data);
-			paintBalls(data.new_rating, rateDiv.attr('data-id'));
+			paintBalls(data.league_info.val, rateDiv.attr('data-id'));
 		}else{
-			paintStars(data.new_rating, rateDiv.attr('data-id'));
+			paintStars(data.league_info.val, rateDiv.attr('data-id'));
 		}
-		rateDiv.children().last().children().first().text('(tu evaluacion: '+ data.new_rating + ')')
+		rateDiv.children().last().children().first().text('(tu evaluacion: '+ data.league_info.val + ')')
 		toolTip = rateDiv.children().last().children().last();
 		toolTipText = toolTip.text()
 		toolTipTextNum = parseInt(toolTipText.split(" ")[0]);
 		toolTip.text((toolTipTextNum + 1) + " evaluaciones");
+		$('#league-name-text').text(data.league_info.league_name)
+		$('#comment-modal').addClass('modal--active');
+		$('#comment-modal').children().children().first().addClass('modal__content--active');
+
 	});
 
 	function paintStars(rating, hoveredResource){

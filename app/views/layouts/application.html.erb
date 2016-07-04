@@ -29,6 +29,42 @@
     <div class="mdl-snackbar__text"></div>
     <button type="button" class="mdl-snackbar__action"></button>
   </div>
+  <div class="modal modal__bg " id="comment-modal">
+    <div class="modal__dialog">
+      <div class="modal__content ">
+        <div class="modal__header" style="background-color: rgb(30,101,124);">
+          <div class="modal__title">
+            <h2 class="modal__title-text m-1em" style="color: white">
+              <i class="material-icons">comment</i>
+              <span class="m-1em">¡Gracias por tu evaluación!</span>
+            </h2>
+          </div>
+        </div>
+        <div class="modal__text">
+          <p style="text-align: justify;">Te invitamos a dejar un commentario acerca de la
+          <span id="league-name-text">
+                
+          </span>
+          . Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.</p>
+          <div class="modal__input" style="display: flex; align-items: center; ">
+            <img src=<%= user_signed_in? ? current_user.profile_image_url : '' %> style="border-radius: 100%; max-width: 60px; max-height: 60px; margin-right: 2em;">
+            <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
+              <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>
+              <label class="mdl-textfield__label" for="sample5">Text lines...</label>
+            </div>
+          </div>
+        </div>
+        <div class="modal__footer">
+          <a class='mdl-button mdl-button--colored mdl-js-button '>
+            Enviar comentario
+          </a>
+          <a class='mdl-button mdl-button--colored mdl-js-button ' id="modal-comment-close">
+            Cancelar
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-	<%= javascript_include_tag 'material-modal.min' %>
+	<%= javascript_include_tag 'material-modal' %>
 </html>
