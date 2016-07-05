@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>LigaFC</title>
-  <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">   -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,700,700italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <!-- <script defer src="https://code.getmdl.io/1.1.3/material.min.js"></script> -->
+  
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -47,7 +46,8 @@
           </span>
           . Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.</p>
           <div class="modal__input" style="display: flex; align-items: center; ">
-            <img src=<%= user_signed_in? ? current_user.profile_image_url : '' %> style="border-radius: 100%; max-width: 60px; max-height: 60px; margin-right: 2em;">
+            <img style="border-radius: 100%; max-width: 60px; max-height: 60px; margin-right: 2em;" src=<%= user_signed_in? ? current_user.profile_image_url : '' %> 
+            >
             <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
               <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>
               <label class="mdl-textfield__label" for="sample5">Text lines...</label>
@@ -66,5 +66,6 @@
     </div>
   </div>
 </body>
+
 	<%= javascript_include_tag 'material-modal' %>
 </html>

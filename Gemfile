@@ -38,10 +38,13 @@ gem 'font-awesome-sass'
 gem 'pg'
 gem 'rails_12factor'
 gem 'browser'
+gem 'bourbon'
+
 
 gem 'devise'
 gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
+
 gem 'will_paginate'
 
 # Use ActiveModel has_secure_password

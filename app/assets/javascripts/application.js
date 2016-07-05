@@ -18,8 +18,8 @@
 //= require header
 //= require_tree .
 //= require autocomplete-rails
-//= require rating
 //= require drawer
+//= require rating
 
 $('document').ready(function() {
   setTimeout(function() {
@@ -30,6 +30,6 @@ $('document').ready(function() {
   }, 3000);
 });
 
-document.addEventListener('page:change', function() {
+document.addEventListener('turbolinks:load', function() {
   componentHandler.upgradeDom();
 });

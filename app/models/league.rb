@@ -28,6 +28,8 @@ class League < ActiveRecord::Base
 
 	has_many :cups
 	belongs_to :county
+	extend WillPaginate
+
 
 	def sorted_cups
 		self.cups.order(:day) 
