@@ -32,8 +32,15 @@ class LeaguesController < ApplicationController
 			@leagues = @leagues.where( name: params[:search])
 		end
 
+		limit = 2 ;
+
+		@leagues = @leagues.limit(2).offset(2*(params[:page] ? params[:page].to_i - 1 : 0));
+		@page = params[:page]
+		@pages_num = (@leagues.count/limit).to_i + 1
+
 
 		@leagues = @leagues.sort_by{ |league| league.uses_liga_fc ? 0 : 1 }
+
 
 	end
 

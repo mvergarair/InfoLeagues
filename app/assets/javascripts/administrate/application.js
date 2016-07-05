@@ -29,22 +29,22 @@ var ready = function() {
       $('#league_name').blur(function (argument) {
 
         //google call (for website_url)
-        var googleCall = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + $('#league_name').val() ;
-        $.ajax({
-          url: googleCall,
-          dataType: 'jsonp',
-          context: document.body,
-          success: function(data){
-            console.log(data);
-            $('#league_website_link').val(data.data[0].username);
-            $('#website_link').attr("href",  data.data[0].username);
-          },
-          error: function(data){
-            console.log(data);
+        // var googleCall = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=" + $('#league_name').val() ;
+        // $.ajax({
+        //   url: googleCall,
+        //   dataType: 'jsonp',
+        //   context: document.body,
+        //   success: function(data){
+        //     console.log(data);
+        //     $('#league_website_link').val(data.data[0].username);
+        //     $('#website_link').attr("href",  data.data[0].username);
+        //   },
+        //   error: function(data){
+        //     console.log(data);
 
-          } 
-        });
-
+        //   } 
+        // });  
+        $('#website_link').val('https://www.google.com/search?q=' + $('#league_name').val());
 
         //facebook call
         var urlCall = "/search?q="+ $('#league_name').val() + "&type=page&access_token=1756018021309970|ddll514iir8TI0cmv1oGlWijkO4";
@@ -56,12 +56,13 @@ var ready = function() {
         });
 
         //instagram call
-        var instagramCall = "https://api.instagram.com/v1/users/search?q=" + $('#league_name').val() + "&access_token=15557922.1677ed0.55a4d614cb4a4bbbbaf48eb2894ad43c"
+        var instagramCall = "https://api.instagram.com/v1/users/search?q=" + $('#league_name').val() + "&access_token=15557922.1677ed0.55a4d614cb4a4bbbbaf48eb2894ad43c&scope=basic+public_content+likes+comments"
         $.ajax({
           url: instagramCall,
           dataType: 'jsonp',
           context: document.body,
           success: function(data){
+            console.log(data);
             $('#league_instagram_link').val("https://www.instagram.com/" + data.data[0].username);
             $('#instagram_link').attr("href","https://www.instagram.com/" + data.data[0].username);
           }
