@@ -297,7 +297,7 @@ DEPENDENCIES
   administrate
   administrate-field-nested_has_many (~> 0.0.2)
   annotate
-  aws-sdk (~> 1.61.0)
+  aws-sdk (< 2.0)
   better_errors
   bourbon
   browser
