@@ -29,3 +29,7 @@ $('document').ready(function() {
     $('.alert').slideUp();
   }, 3000);
 });
+
+document.addEventListener('page:change', function() {
+  componentHandler.upgradeDom();
+});

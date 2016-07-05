@@ -29,6 +29,44 @@
     flex-direction: row-reverse;
     .pagination{
       display: flex;
+      font-size: 1.2em;
+      font-weight: 300;
+      align-items: center;
+      .disabled{
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        padding:0.2em;
+        margin: 0 0.1em;
+      }
+      em{
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        text-align: center;
+        font-style: inherit;
+        color: white;
+        padding:0.2em;
+        margin: 0 0.1em;
+        background-color: $dark-blue-color;
+        border-radius: 100%;
+      }
+      a{
+        height: 20px;
+        width: 20px;
+        line-height: 20px;
+        text-align: center;
+        text-decoration: none;
+        margin: 0 0.1em;
+        color: rgba(0,0,0,.5);
+        cursor: pointer;
+        padding:0.2em;
+        border-radius: 100%;
+        &:hover{
+          background-color: $light-blue-color;
+          color: white;
+        }
+      }
     }
   }
 

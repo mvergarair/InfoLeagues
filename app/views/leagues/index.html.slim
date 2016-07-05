@@ -77,8 +77,11 @@
           .card-bottom
 .pagination-cont
   .pagination
-    i.material-icons.m-r03em keyboard_arrow_left
-    -@pages_num.each do |num|
+    = will_paginate @leagues
+    /i.material-icons.m-r03em keyboard_arrow_left
+
+    / -@pages_num.each do |num|
+
 
 
 

@@ -21,3 +21,11 @@
 
 en:
   hello: "Hello world"
+  will_paginate:
+    previous_label: <i class="material-icons">keyboard_arrow_left</i>
+    next_label:  <i class="material-icons">keyboard_arrow_right</i>
+es:
+  hello: "Hello world"
+  will_paginate:
+    previous_label: <i class="material-icons" >keyboard_arrow_left</i>
+    next_label:  <i class="material-icons">keyboard_arrow_right</i>
