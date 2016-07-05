@@ -28,7 +28,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'geocoder'
 gem 'paperclip'
-gem 'aws-sdk', '< 2.0'
+gem 'aws-sdk'
 gem 'administrate'
 gem "administrate-field-nested_has_many",  "~> 0.0.2"
 gem "browserify-rails"
