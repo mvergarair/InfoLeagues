@@ -107,5 +107,5 @@ var ready = function() {
 	handleCountyFinderChange();
 };
 
-$(document).ready(ready);
+
 $(document).on('turbolinks:load', ready);

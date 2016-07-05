@@ -15,10 +15,10 @@
 //= require jquery-ui/autocomplete
 //= require turbolinks
 //= require material
-//= require header
 //= require_tree .
 //= require autocomplete-rails
 //= require drawer
+//= require header
 //= require rating
 
 $('document').ready(function() {
