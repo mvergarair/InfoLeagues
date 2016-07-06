@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   root 'leagues#index'
   resources :counties, only: [:index]
   resources :ratings, only: [:create]
-  resources :leagues, only: [:index] do
+  resources :leagues, only: [:index, :show] do
     get :autocomplete_league_name, :on => :collection
   end
   get :twitter_search, to: 'leagues#twitter_search'

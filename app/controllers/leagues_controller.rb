@@ -38,6 +38,12 @@ class LeaguesController < ApplicationController
 
 	end
 
+	def show
+		@rating = Rating.new
+		@league = League.friendly.find(params[:id])
+		
+	end
+
 	def twitter_search
 		client = Twitter::REST::Client.new do |config|
 		  config.consumer_key        = "fMN930mkDWpHMqowi6EYV9DaI"

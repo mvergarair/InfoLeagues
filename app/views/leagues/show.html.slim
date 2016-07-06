@@ -1,0 +1,66 @@
+.large-card
+  .card-body
+    .card-top
+      .card-image
+        a href=("#{standerdize_url(@league.website_link)}")
+          = image_tag @league.logo.url
+      .card-info
+        .section
+          h3
+            =@league.name
+          - if @league.uses_liga_fc
+            .powered-by
+              .text
+                span
+                  | powered by:
+              = image_tag 'dark-logo copy.png'
+        = render 'layouts/star_rate', rating: @league.my_rating, resource: @league, resource_type: :league
+        .section style='margin-bottom: 0.1em;'
+          .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+            .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
+              - @league.sorted_cups.each_with_index do |cup, i|
+                a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel") id=("#{cup.id}")
+                    = cup.day.capitalize
+              i.material-icons id=("#{@league.id}tt-league") style='font-size: 1.1em;'
+                | help 
+              .mdl-tooltip for=("#{@league.id}tt-league")
+                  | Los días que se juega la liga
+            - @league.sorted_cups.each_with_index do |cup, i|
+                .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
+                  .section
+                    .level
+                      .small-flex
+                        span.info-span id=("#{cup.id}tt-cup")
+                          | Nivel de juego:
+                        .mdl-tooltip for=("#{cup.id}tt-cup") 
+                            | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
+                      = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
+                  .small-flex style='flex-wrap: wrap; justify-content: space-between'
+                    .item-info
+                      .section
+                        .players
+                          i.material-icons.m-r03em accessibility
+                          span.info-span 
+                            | Jugadores en cancha: 
+                            b
+                              = cup.amount_of_players
+                      .section
+                        .location
+                          i.material-icons.m-r03em location_on
+                          span.info-span
+                            = cup.location.name
+                    .item-info
+                      .section
+                        .price-div
+                          i.material-icons attach_money
+                          span.info-span
+                            | Precio inscripción: 
+                            b = clp_format(@league.min_price)
+                      .section
+                        .half-time
+                          i.material-icons.m-r03em timer
+                          span.info-span
+                            | Tiempo de juego: 
+                            b = cup.half_time * 2
+                            |  minutos 
+    .card-bottom
