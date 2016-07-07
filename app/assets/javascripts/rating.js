@@ -37,7 +37,6 @@ var ready = function() {
 
 	$('.rate-star').click(function(){
 		if($(this).parent().attr('data-signed-in')== "false"){
-			console.log('hola');
 			var notification = document.querySelector('.mdl-js-snackbar');
 			var data = {
 			  message: 'Debe iniciar sesión para calificar.',
@@ -54,6 +53,8 @@ var ready = function() {
 		if($('#rating_grade').val() == null || $(this).parent().attr('data-disable') == "true"){
 			return;
 		}
+		$(this).parent().children().last().children().first().show();
+		$(this).parent().children().last().children().first().next().hide();
 		$(this).parent().parent().submit();
 	})
 
@@ -63,6 +64,8 @@ var ready = function() {
 	});
 
 	$('form').bind("ajax:success", function( e , data ) {
+		$(this).children().last().children().last().children().first().hide();
+		$(this).children().last().children().last().children().first().next().show();
 		rateDiv = $(this).children().last();
 		rateDiv.attr('data-disable', 'true');
 		rateDiv.attr('data-rate', data.league_info.val);
@@ -71,7 +74,8 @@ var ready = function() {
 		}else{
 			paintStars(data.league_info.val, rateDiv.attr('data-id'));
 		}
-		rateDiv.children().last().children().first().text('(tu evaluacion: '+ data.league_info.val + ')')
+		console.log(data);
+		rateDiv.children().last().children().first().next().text('(tu evaluacion: '+ data.league_info.val + ')');
 		toolTip = rateDiv.children().last().children().last();
 		toolTipText = toolTip.text()
 		toolTipTextNum = parseInt(toolTipText.split(" ")[0]);
