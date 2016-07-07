@@ -25,6 +25,8 @@ window.fbAsyncInit = function() {
 
 var ready = function() {
 
+
+
     var setNameInputBlurHandler = function(){
       $('#league_name').blur(function (argument) {
 
@@ -92,6 +94,8 @@ var ready = function() {
 
     setNameInputBlurHandler();
 }
+
+
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
