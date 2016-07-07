@@ -97,7 +97,7 @@
 		display: none;
 	}
 	.download{
-		margin-top: 80px;
+		margin-top: 60px;
 		margin-left: -10px;
 		display: flex;
 	    justify-content: center;
@@ -135,6 +135,8 @@
 			align-items: center;
 			padding: 10px 0px;
 			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 			&:hover {
 				background-color: grey;
 			}
@@ -157,6 +159,8 @@
 			align-items: center;
 			padding: 10px 0px;
 			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 
 
 			.mdl-switch{
@@ -184,6 +188,8 @@
 			align-items: center;
 			padding: 10px 0px;
 			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 
 			.small-flex{
 				display: flex; 
@@ -207,6 +213,8 @@
 
 			display: none;
 			padding-left: 15px;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 
 			.mdl-checkbox {
 				margin-top: 0.3em;
