@@ -12,12 +12,16 @@
         label.mdl-textfield__label for="sample3"
           span Busque ligas
     nav.mdl-navigation
-      /span.small-flex
-          i.material-icons today
+      .uses
+        span.small-flex
+          i.material-icons check
           span.m-1em
             | Usa LigaFC
-          label.mdl-checkbox.mdl-js-checkbox for='uses-ligafc-chk'
-            input.mdl-checkbox__input id='uses-ligafc-chk'
+        label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1" style='width: inherit;'
+          -if @ulfc_open
+            input type="checkbox" id="list-switch-1" class="mdl-switch__input" checked=''
+          -else
+            input type="checkbox" id="list-switch-1" class="mdl-switch__input" 
       .word-menu#days
         span.small-flex
           i.material-icons today

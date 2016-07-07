@@ -148,6 +148,33 @@
 			}
 		}
 
+		.uses{
+			display: flex;
+			cursor: pointer;
+			font-weight: 100;
+			line-height: 1em;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 0px;
+			font-size: 1.3em;
+
+
+			.mdl-switch{
+				.is-checked{
+					.mdl-switch__track{
+						background: rgba(75,166,191,0.7);
+					}
+					
+				}
+
+				.mdl-switch__thumb{
+					background: rgb(75, 166, 191);
+				}
+			}
+
+
+		}
+
 		.word-menu {
 			display: flex;
 			cursor: pointer;

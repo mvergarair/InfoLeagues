@@ -6,6 +6,11 @@ class LeaguesController < ApplicationController
 		@leagues = League.all
 		@rating = Rating.new
 
+		#uses liga fc filter
+		if params[:uses_liga_fc] and params[:uses_liga_fc] != ''
+			@leagues = @leagues.where(uses_liga_fc: true)
+		end
+
 		#day filter
 		if not (params[:day] == nil or params[:day] == '')
 			@leagues = @leagues.where(id: Cup.where(day: day_array(params[:day].split(','))).map{|cup| cup.league.id})

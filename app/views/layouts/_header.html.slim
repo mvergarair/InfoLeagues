@@ -8,6 +8,7 @@ header.mdl-layout__header
   		.search-icon
   			i.material-icons search
         = form_tag leagues_path, method: 'get', enforce_utf8: false, id: 'search_form'
+          = hidden_field_tag :uses_liga_fc
           = hidden_field_tag :day
           = hidden_field_tag :county
           = hidden_field_tag :amount_of_players
