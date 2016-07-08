@@ -15,6 +15,7 @@ class CupDashboard < Administrate::BaseDashboard
     price_options: Field::NestedHasMany.with_options(skip: :cup),
     prize_options: Field::NestedHasMany.with_options(skip: :cup),
     amount_of_players: Field::Number,
+    amount_of_games: Field::Number,
     # prize: Field::String,
     half_time: Field::Number,
     created_at: Field::DateTime,
@@ -28,10 +29,10 @@ class CupDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
-    :league,
-    :location,
-    :id,
     :day,
+    :location,
+    :amount_of_players,
+    :id
   ]
 
   # SHOW_PAGE_ATTRIBUTES
@@ -41,6 +42,8 @@ class CupDashboard < Administrate::BaseDashboard
     :location,
     :id,
     :day,
+    :amount_of_players,
+    :amount_of_games,
     :price_options,
     :prize_options,
     :half_time,
@@ -55,6 +58,7 @@ class CupDashboard < Administrate::BaseDashboard
     :league,
     :location,
     :amount_of_players,
+    :amount_of_games,
     :price_options,
     :prize_options,
     :half_time,

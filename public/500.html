@@ -1,66 +1,148 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>We're sorry, but something went wrong (500)</title>
+  <title>LigaFC</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
-  body {
-    background-color: #EFEFEF;
-    color: #2E2F30;
-    text-align: center;
-    font-family: arial, sans-serif;
-    margin: 0;
-  }
+ .container {
+  font-family: "Roboto", Helvetica, Arial;
+}
+/* line 3, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .top {
+  height: 40vh;
+  background-color: #1e657c;
+}
+/* line 7, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .top img {
+  max-width: 250px;
+  margin-bottom: 1em;
+}
+/* line 11, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .top .welcome {
+  color: white;
+  font-size: 1.4em;
+  font-weight: 100;
+}
+/* line 17, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom {
+  margin-top: -20vh;
+}
+/* line 19, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card {
+  width: 100%;
+}
+/* line 21, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__title {
+  background-color: #4ba6bf;
+}
+/* line 24, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .border-right {
+  border-right: 1px solid #e6e6e6;
+}
+/* line 27, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text {
+  flex: 1;
+  padding-top: 0em;
+  padding-bottom: 0em;
+  margin: 1em 0 1em 0;
+}
+/* line 32, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .mdl-checkbox {
+  color: #607d8b;
+  font-weight: 300;
+}
+/* line 36, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .fb-button {
+  background-color: #3f5aa6;
+  border-radius: 2px;
+  padding: 1em 1em 1em 1em;
+  margin-bottom: 1em;
+  font-family: 'Lucida Grande', 'Roboto';
+  cursor: pointer;
+}
+/* line 44, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .fb-button:hover {
+  background-color: #314681;
+}
+/* line 47, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .fb-button a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 300;
+}
+/* line 54, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .google-button {
+  background-color: #d34836;
+  border-radius: 2px;
+  padding: 1em 1em 1em 1em;
+  font-family: 'Roboto';
+  cursor: pointer;
+}
+/* line 61, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .google-button:hover {
+  background-color: #b03626;
+}
+/* line 64, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .mdl-card__supporting-text .google-button a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 400;
+}
+/* line 72, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+.container .bottom .mdl-card .devise-link {
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 100;
+}
 
-  div.dialog {
-    width: 95%;
-    max-width: 33em;
-    margin: 4em auto 0;
+@media screen and (max-width: 479px) {
+  /* line 88, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+  .container .top .welcome {
+    font-size: 1em;
   }
+  /* line 94, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+  .container .bottom .mdl-card .mdl-card__supporting-text {
+    flex: 0 1 auto;
+  }
+  /* line 98, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+  .container .bottom .mdl-card .second {
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ededed;
+    margin-left: 16px;
+    padding-left: 0px;
+    margin-right: 16px;
+    padding-right: 0px;
+    order: -1;
+  }
+  /* line 107, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+  .container .bottom .mdl-card .second p {
+    margin: 0.6em 0;
+    font-size: 1.1em;
+  }
+  /* line 112, /Users/mvergarair/Projects/infoLeagues/app/assets/stylesheets/devise.scss */
+  .container .bottom .mdl-card .border-right {
+    border-right: none;
+  }
+}
 
-  div.dialog > div {
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #BBB;
-    border-top: #B00100 solid 4px;
-    border-top-left-radius: 9px;
-    border-top-right-radius: 9px;
-    background-color: white;
-    padding: 7px 12% 0;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
-
-  h1 {
-    font-size: 100%;
-    color: #730E15;
-    line-height: 1.5em;
-  }
-
-  div.dialog > p {
-    margin: 0 0 1em;
-    padding: 1em;
-    background-color: #F7F7F7;
-    border: 1px solid #CCC;
-    border-right-color: #999;
-    border-left-color: #999;
-    border-bottom-color: #999;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
-    border-top-color: #DADADA;
-    color: #666;
-    box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
-  }
   </style>
 </head>
 
 <body>
-  <!-- This file lives in public/500.html -->
-  <div class="dialog">
-    <div>
-      <h1>We're sorry, but something went wrong.</h1>
+  <!-- This file lives in public/404.html -->
+  <div class="container">
+    <div class="top">
     </div>
-    <p>If you are the application owner check the logs for more information.</p>
+    <div class="bottom">
+      <div class="mdl-card " style="width: 300px; margin: 0 auto; background-color: white; box-shadow: 0 6px 10px 0 rgba(0,0,0,.14),0 1px 18px 0 rgba(0,0,0,.12),0 3px 5px -1px rgba(0,0,0,.2); text-align: center;">    
+          <img src="https://s3.amazonaws.com/info-leagues/dark-logo+copy.png" style="margin: 0.1em;">
+          <div>
+            <span style="font-size: 100px; font-family: 'Roboto','Helvetica'; font-weight: 100; margin: 0.1em;">500</span>
+          </div>
+      </div>            
+    </div>
   </div>
 </body>
 </html>

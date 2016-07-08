@@ -16,6 +16,12 @@ var ready = function() {
 			});
 		}
 	});
+
+	$('h3').each(function(){
+		if ($(this).text().length > 16){
+			$(this).css('font-size', '25px');
+		}
+	})
 }
 
 $(document).on('turbolinks:load', ready);

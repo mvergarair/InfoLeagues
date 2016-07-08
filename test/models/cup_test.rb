@@ -17,6 +17,7 @@
 #  bases_file_size    :integer
 #  bases_updated_at   :datetime
 #  half_time          :integer
+#  amount_of_games    :integer
 #
 
 require 'test_helper'
