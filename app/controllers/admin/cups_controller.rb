@@ -28,6 +28,9 @@ module Admin
             cup.price_options.each do |po|
                 po.id = nil
             end
+            cup.prize_options.each do |po|
+                po.id = nil
+            end
             flash[:alert] = "Asegúrese de cambiar el día de la copa. Si todo lo demás es igual, está listo."
         end
         render locals: {
