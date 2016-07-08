@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628141536) do
+ActiveRecord::Schema.define(version: 20160707234515) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,19 @@ ActiveRecord::Schema.define(version: 20160628141536) do
   add_index "cups", ["league_id"], name: "index_cups_on_league_id"
   add_index "cups", ["location_id"], name: "index_cups_on_location_id"
 
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
+
   create_table "leagues", force: :cascade do |t|
     t.string   "name"
     t.string   "phone"
@@ -61,9 +74,11 @@ ActiveRecord::Schema.define(version: 20160628141536) do
     t.boolean  "uses_liga_fc",      default: false
     t.integer  "min_price"
     t.integer  "county_id"
+    t.string   "slug"
   end
 
   add_index "leagues", ["county_id"], name: "index_leagues_on_county_id"
+  add_index "leagues", ["slug"], name: "index_leagues_on_slug", unique: true
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -89,6 +104,16 @@ ActiveRecord::Schema.define(version: 20160628141536) do
   end
 
   add_index "price_options", ["cup_id"], name: "index_price_options_on_cup_id"
+
+  create_table "prize_options", force: :cascade do |t|
+    t.string   "comment"
+    t.string   "prize"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "cup_id"
+  end
+
+  add_index "prize_options", ["cup_id"], name: "index_prize_options_on_cup_id"
 
   create_table "rating_caches", force: :cascade do |t|
     t.integer  "cacheable_id"

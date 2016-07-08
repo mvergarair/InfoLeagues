@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/mvergarair/administrate-field-nested_has_many.git
-  revision: 8b0dc17bfc8f82e078c4680f44bd6ff2c1cc11f9
+  revision: 7e4def5fca374add1dc7f30257d9c5796a4fb39d
   specs:
     administrate-field-nested_has_many (0.1.0)
       administrate (~> 0.2.1)

@@ -20,11 +20,15 @@
 #
 
 class Cup < ActiveRecord::Base
+
+  
 	after_save :update_min_price, :update_league_county
   belongs_to :league
   belongs_to :location
   has_many :price_options
+  has_many :prize_options
   accepts_nested_attributes_for :price_options
+  accepts_nested_attributes_for :prize_options
   has_attached_file :bases
 	validates_attachment_content_type :bases, :content_type => ['application/pdf', 'application/msword', 'text/plain']
 

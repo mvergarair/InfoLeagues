@@ -19,6 +19,7 @@
 #  uses_liga_fc      :boolean          default(FALSE)
 #  min_price         :integer
 #  county_id         :integer
+#  slug              :string
 #
 
 require 'test_helper'

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :counties
     resources :locations
     resources :price_options
+    resources :prize_options
     resources :users,  except: [:new]
 
     root to: "leagues#index"
