@@ -4,7 +4,7 @@ es:
       league: 'Ligas'
       cup: 'Copas'
       county: 'Comuna'
-      location: 'Club'      
+      location: 'Ubicación'      
       price_option: 'Opción de precio'
       prize_option: 'Premio'
       user: 'Usuario'

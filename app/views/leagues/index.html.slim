@@ -30,27 +30,36 @@
                 .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
                   .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
                     - league.sorted_cups.each_with_index do |cup, i|
-                      a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel") id=("#{cup.id}")
-                          = cup.day.capitalize
+                      a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
+                          = cup.name 
                     i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
                       | help 
                     .mdl-tooltip for=("#{league.id}tt-league")
-                        | Los días que se juega la liga
+                        | Las distintas copas de la liga
                   - league.sorted_cups.each_with_index do |cup, i|
-                      .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
+                      .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("cup-#{cup.id}-panel")
                         .section
-                          .level
-                            .small-flex
-                              span.info-span id=("#{cup.id}tt-cup")
-                                | Nivel de juego:
-                              .mdl-tooltip for=("#{cup.id}tt-cup") 
-                                  | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
-                            = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
                         .small-flex style='flex-wrap: wrap; justify-content: space-between'
                           .item-info
+                            .basic-info 
+                              .item
+                                .day-info.info
+                                  = image_tag get_day_icon(cup.day), style:'max-width: 20px; margin-right: 0.9em;' 
+                                  = cup.day.capitalize
+                                .time-info.info style='display: flex; align-items: center'
+                                  i.material-icons.m-r03em
+                                    | access_time
+                                  = cup.time.capitalize
+                              .item style='margin-left: 0.2em;'
+                                .age-info.info
+                                  = image_tag 'speed-meter.svg', style: 'max-width: 20px; margin-right: 0.3em;'
+                                  = cup.age.capitalize
+                                .sex-info.info style='border: none; '
+                                  i.fa.fa-male.m-r03em style='font-size: 20px;'
+                                  = cup.sex.capitalize
                             .section
                               .players
-                                i.material-icons.m-r03em accessibility
+                                = image_tag 'football-player-running-behind-the-ball.svg', style: 'max-width: 20px; margin-right: 0.3em;'
                                 span.info-span 
                                   | Jugadores en cancha: 
                                   b
@@ -61,6 +70,13 @@
                                 span.info-span
                                   = cup.location.name
                           .item-info
+                            .level
+                              .small-flex
+                                span.info-span id=("#{cup.id}tt-cup")
+                                  | Nivel de juego:
+                                .mdl-tooltip for=("#{cup.id}tt-cup") 
+                                    | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
+                              = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
                             .section
                               .price-div
                                 i.material-icons attach_money

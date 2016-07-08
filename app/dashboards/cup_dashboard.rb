@@ -12,6 +12,10 @@ class CupDashboard < Administrate::BaseDashboard
     location: Field::BelongsTo,
     id: Field::Number,
     day: EnumField,
+    name: Field::String,
+    age: EnumField,
+    sex: EnumField,
+    time: EnumField,
     price_options: Field::NestedHasMany.with_options(skip: :cup),
     prize_options: Field::NestedHasMany.with_options(skip: :cup),
     amount_of_players: Field::Number,
@@ -29,6 +33,7 @@ class CupDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = [
+    :name,
     :day,
     :location,
     :amount_of_players,
@@ -38,10 +43,14 @@ class CupDashboard < Administrate::BaseDashboard
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = [
-    :league,
-    :location,
-    :id,
+    :name,
     :day,
+    :sex,
+    :age,
+    :time,
+    :location,
+    :league,
+    :id,
     :amount_of_players,
     :amount_of_games,
     :price_options,
@@ -54,21 +63,25 @@ class CupDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = [
+    :name,
     :day,
-    :league,
     :location,
+    :age,
+    :time,
+    :sex,
+    :half_time,
     :amount_of_players,
     :amount_of_games,
     :price_options,
     :prize_options,
-    :half_time,
-    :bases
+    :league
+    # :bases
   ]
 
   # Overwrite this method to customize how cups are displayed
   # across all pages of the admin dashboard.
   #
   def display_resource(cup)
-    "Cup #{cup.day.capitalize}"
+    "Cup #{cup.name}"
   end
 end

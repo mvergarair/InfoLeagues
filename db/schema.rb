@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160708044236) do
+ActiveRecord::Schema.define(version: 20160708210621) do
 
   create_table "counties", force: :cascade do |t|
     t.string   "name"
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(version: 20160708044236) do
     t.datetime "bases_updated_at"
     t.integer  "half_time"
     t.integer  "amount_of_games"
+    t.string   "name"
+    t.integer  "time"
+    t.integer  "age",                default: 0
+    t.integer  "sex",                default: 0
   end
 
   add_index "cups", ["league_id"], name: "index_cups_on_league_id"

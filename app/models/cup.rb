@@ -18,6 +18,10 @@
 #  bases_updated_at   :datetime
 #  half_time          :integer
 #  amount_of_games    :integer
+#  name               :string
+#  time               :integer
+#  age                :integer          default(0)
+#  sex                :integer          default(0)
 #
 
 class Cup < ActiveRecord::Base
@@ -35,6 +39,9 @@ class Cup < ActiveRecord::Base
 
 
   enum day: [:lunes, :martes, :miercoles, :jueves, :viernes, :sábado, :domingo]
+  enum time: [:noche, :mañana, :tarde ]
+  enum age: [:junior, :escolar,  :senior, :supersenior]
+  enum sex: [:male, :female];
 
   def active?
   	start_date < Time.now and Time.now < end_date + 1.week

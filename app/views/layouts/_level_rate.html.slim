@@ -16,6 +16,6 @@
     .user-rating
       .mdl-spinner.mdl-js-spinner.is-active style="display: none;"
       span.rating id=("#{resource.id}-user-rating-ttp")
-  		  = resource.has_rated?(current_user) ? "(tu ranking: #{resource.user_rating(current_user).grade})" : '(no has evaluado esta liga)'
+  		  = resource.has_rated?(current_user) ? "(tu ranking: #{resource.user_rating(current_user).grade})" : ''
       .mdl-tooltip for=("#{resource.id}-user-rating-ttp")
         = "#{resource.amount_of_ratings} evaluaciones"

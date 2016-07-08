@@ -1,12 +1,16 @@
 .mdl-layout__drawer
   = link_to leagues_path , method: :get
-    = image_tag 'dark-logo.png', style: 'margin: 2em 10px 0.3em 10px'
-    span.mdl-layout-title Bienvenido al primer Club de Ligas amateur de Chile.
+    = image_tag 'logo-dark.png', style: 'margin: 2em 10px 1em 10px; max-width: 230px; padding-left: 3.9em;'
+    span.mdl-layout-title 
+      | Busca tu próxima liga.
+      br
+      span
+      | Una herramienta de LigaFC.
   .filter-container
     .btm-brd
       h4
         i.material-icons filter_list
-        span.m-1em Busca tu liga
+        span.m-1em Filtros
       /.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label style=
         input.mdl-textfield__input type="text" id="sample3"
         label.mdl-textfield__label for="sample3"
@@ -92,7 +96,7 @@
           i.material-icons timeline
           span.m-1em
             | Avanzado
-  .download
+  /.download
     a href='https://play.google.com/store/apps/details?id=cl.kaizengroup.prensaliga&utm_source=global_co&utm_medium=prtnr&utm_content=Mar2515&utm_campaign=PartBadge&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'
       img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/es-419_badge_web_generic.png' style='max-width: 150px'
     a href='https://itunes.apple.com/cl/app/liga-fc/id1046601010?mt=8'

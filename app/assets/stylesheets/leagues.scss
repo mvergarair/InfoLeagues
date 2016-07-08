@@ -193,6 +193,22 @@
               align-items: center;
               margin-left: 0.3em; 
             }
+            .basic-info{
+              font-size: 1em;
+              color: grey;
+              font-weight: 100;
+              display: flex;
+              justify-content: space-between;
+              .item{
+                  
+                .info{
+                  margin-bottom: 0.2em;
+                }
+
+                }
+
+              
+            }
             .location{
               display: flex;
               align-items: center;
@@ -205,6 +221,8 @@
               }
             }
             .level{
+              margin-left: 0.6em;
+              margin-bottom: 0.3em;  
               .small-flex{
                 margin-bottom: 0.1em;
               }
@@ -270,7 +288,7 @@
           }
           .card-info{
             flex: 0 1 auto;
-            padding-top: 1em;
+            padding: 1em 0.3em 1em 0.3em;
             .text{
               line-height: 10px;
             }
@@ -282,6 +300,10 @@
               }
             }
             .section {
+              .level{
+                margin-left: 0.3em;
+                margin-bottom: 0.1em;  
+              }
               .price-div{
                 margin-left: 0px;
               }
