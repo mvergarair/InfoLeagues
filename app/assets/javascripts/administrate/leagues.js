@@ -1,4 +1,31 @@
+var map;
+function initMap() {
+
+map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 15
+});
+}
+
 var ready = function() {
+
+	$("#modal-comment-close").click(function(){
+		$('#map-modal').removeClass('modal--active');
+		$('#map-modal').children().children().first().removeClass('modal__content--active');
+	});
+
+	$('.location').click(function() {
+		var location = $(this).attr('data-location').split(',');
+		map.setCenter({ lat: parseFloat(location[0]), lng: parseFloat(location[1]) });
+		var marker = new google.maps.Marker({
+	    	position: { lat: parseFloat(location[0]), lng: parseFloat(location[1]) },
+	    	map: map,
+	    	title: 'Hello World!'
+	  	});
+		$('#map-modal').addClass('modal--active');
+		$('#map-modal').children().children().first().addClass('modal__content--active');
+	})
+	
 
 	$('.mdl-tabs__tab-bar').each(function() {
 		if ($(window).width() >= 400){

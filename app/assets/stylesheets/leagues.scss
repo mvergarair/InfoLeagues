@@ -12,6 +12,11 @@
   background-color: #F2F2F2;
 }
 
+#map{
+  height: 300px;
+  width: 600px;
+}
+
 .page-content{
     .mdl-button--fab{
       position: fixed;
@@ -269,7 +274,13 @@
 }
 // phone screen
 @media screen and (max-width: 680px){
+
+  
   .page-content{
+    #map{
+      height: 300px;
+      width: 300px;
+    }
     padding: 2em 1em;
     .large-card{
       .card-body{

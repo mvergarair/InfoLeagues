@@ -31,7 +31,7 @@
                   .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
                     - league.sorted_cups.each_with_index do |cup, i|
                       a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
-                          = cup.name 
+                          = cup.name != nil ? cup.name : cup.day.capitalize
                     i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
                       | help 
                     .mdl-tooltip for=("#{league.id}tt-league")
@@ -55,7 +55,10 @@
                                   = image_tag 'speed-meter.svg', style: 'max-width: 20px; margin-right: 0.3em;'
                                   = cup.age.capitalize
                                 .sex-info.info style='border: none; '
-                                  i.fa.fa-male.m-r03em style='font-size: 20px;'
+                                  - if cup.sex == "male"
+                                    i.fa.fa-male.m-r03em style='font-size: 20px;'
+                                  - else
+                                    i.fa.fa-female.m-r03em style='font-size: 20px;'
                                   = cup.sex.capitalize
                             .section
                               .players
@@ -65,10 +68,10 @@
                                   b
                                     = cup.amount_of_players
                             .section
-                              .location
+                              .location data-location=(cup.location ? "#{cup.location.lat} , #{cup.location.lng}" : '')
                                 i.material-icons.m-r03em location_on
-                                span.info-span
-                                  = cup.location.name
+                                span.info-span data-modal='#map-modal'
+                                  = cup.location ? cup.location.name : ''
                           .item-info
                             .level
                               .small-flex
@@ -98,34 +101,21 @@
 
     / -@pages_num.each do |num|
 
+#map-modal.modal.modal__bg
+  .modal__dialog
+    .modal__content
+      .modal__header style="background-color: rgb(30,101,124);"
+        .modal__title
+          h2.modal__title-text.m-1em style="color: white"
+            i.material-icons map
+            span.m-1em BuscaLIGA
+      .modal__text
+        #map
+      .modal__footer
+        a#modal-comment-close.mdl-button.mdl-button--colored.mdl-js-button
+          | Cerrar
 
 
 
 
-
-  <!-- Rate Modal -->
-  .modal.modal__bg#rate-modal
-    .modal__dialog
-      .modal__content
-        .modal__header
-          .modal__title
-            h1.modal__title-text.m-1em
-              i.material-icons style='color: grey'
-                | star
-              span.m-1em Califique la Liga
-        .modal__text
-          p
-            | Califique la liga segun rating, infraestructura, ambiente etc. prlaj; lsdlk fj;aslkdj f;laksdj f;asdkj f
-          h5
-            | Rating
-          /= render 'layouts/star_rate', rating: 0, resource: 'modal', resource_type: :league, resou
-          h5 Comentario
-
-        .modal__footer
-          a.mdl-button.mdl-button--colored.mdl-js-button.modal__close
-            | Close
-
-  <!-- Colored FAB button with ripple -->
-  /button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect dark-blue-color"
-    i.material-icons style="color: white;"
-      | filter_list
+= javascript_include_tag  "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFHR3xPiLysi4bha-_kHnLoSQdjvwFRqY&callback=initMap", async: true, defer: true, 'data-turbolinks-eval' => 'false'

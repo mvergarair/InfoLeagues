@@ -31,7 +31,7 @@ module Admin
             cup.prize_options.each do |po|
                 po.id = nil
             end
-            flash[:alert] = "Asegúrese de cambiar el día de la copa. Si todo lo demás es igual, está listo."
+            flash[:alert] = "Asegúrese de cambiar los atributos que cambian entre las copas. Si todo lo demás es igual, está listo."
         end
         render locals: {
             page: Administrate::Page::Form.new(dashboard, cup),

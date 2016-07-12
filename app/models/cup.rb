@@ -40,8 +40,8 @@ class Cup < ActiveRecord::Base
 
   enum day: [:lunes, :martes, :miercoles, :jueves, :viernes, :sábado, :domingo]
   enum time: [:noche, :mañana, :tarde ]
-  enum age: [:junior, :escolar,  :senior, :supersenior]
-  enum sex: [:male, :female];
+  enum age: [ :toda_edad, :junior, :escolar,  :senior, :supersenior]
+  enum sex: [:male, :female, :mixta];
 
   def active?
   	start_date < Time.now and Time.now < end_date + 1.week
