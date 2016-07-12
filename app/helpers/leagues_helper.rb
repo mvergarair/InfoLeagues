@@ -25,7 +25,7 @@ module LeaguesHelper
 			"symbol.svg"
 		when "martes"
 			"tool-1.svg"
-		when "miercoles"
+		when "miércoles"
 			"symbol-1.svg"
 		when "jueves"
 			"symbol-2.svg"

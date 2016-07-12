@@ -38,7 +38,7 @@ class Cup < ActiveRecord::Base
 	validates_attachment_content_type :bases, :content_type => ['application/pdf', 'application/msword', 'text/plain']
 
 
-  enum day: [:lunes, :martes, :miercoles, :jueves, :viernes, :sábado, :domingo]
+  enum day: [:lunes, :martes, :miércoles, :jueves, :viernes, :sábado, :domingo]
   enum time: [:noche, :mañana, :tarde ]
   enum age: [ :toda_edad, :junior, :escolar,  :senior, :supersenior]
   enum sex: [:male, :female, :mixta];
