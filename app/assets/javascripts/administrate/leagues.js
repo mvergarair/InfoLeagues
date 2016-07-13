@@ -9,7 +9,7 @@ map = new google.maps.Map(document.getElementById('map'), {
 
 var ready = function() {
 
-	$("#modal-comment-close").click(function(){
+	$("#modal-map-close").click(function(){
 		$('#map-modal').removeClass('modal--active');
 		$('#map-modal').children().children().first().removeClass('modal__content--active');
 	});
@@ -20,8 +20,9 @@ var ready = function() {
 		var marker = new google.maps.Marker({
 	    	position: { lat: parseFloat(location[0]), lng: parseFloat(location[1]) },
 	    	map: map,
-	    	title: 'Hello World!'
+	    	title: ''
 	  	});
+	  	$('#title-map-modal').text($(this).children().last().text());
 		$('#map-modal').addClass('modal--active');
 		$('#map-modal').children().children().first().addClass('modal__content--active');
 	})

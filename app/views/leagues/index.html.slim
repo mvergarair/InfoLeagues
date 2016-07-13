@@ -59,9 +59,9 @@
                                     = cup.age.capitalize
                                 .sex-info.info style='border: none; '
                                   - if cup.sex == "male"
-                                    i.fa.fa-male.m-r03em style='font-size: 20px;'
+                                    i.fa.fa-male.m-r03em style='font-size: 20px; margin-right: 0.7em;'
                                   - else
-                                    i.fa.fa-female.m-r03em style='font-size: 20px;'
+                                    i.fa.fa-female.m-r03em style='font-size: 20px; margin-right: 0.7em;'
                                   = cup.sex.capitalize
                             .section
                               .players
@@ -111,11 +111,11 @@
         .modal__title
           h2.modal__title-text.m-1em style="color: white"
             i.material-icons map
-            span.m-1em BuscaLIGA
-      .modal__text
+            span.m-1em#title-map-modal BuscaLIGA
+      .modal__text style='width: 100%;'
         #map
       .modal__footer
-        a#modal-comment-close.mdl-button.mdl-button--colored.mdl-js-button
+        a#modal-map-close.mdl-button.mdl-button--colored.mdl-js-button
           | Cerrar
 
 
