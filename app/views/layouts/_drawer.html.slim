@@ -9,7 +9,7 @@
   .filter-container
     .btm-brd
       h4
-        i.material-icons filter_list
+        i.fa.fa-filter
         span.m-1em Filtros
       /.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label style=
         input.mdl-textfield__input type="text" id="sample3"
@@ -83,13 +83,13 @@
           span.m-1em
             | Precio
         i.material-icons.align-right arrow_drop_down
-      .items-drop
-        input.mdl-slider.mdl-js-slider#price-slider max=("#{PriceOption.max_price / 1000}") min="0" tabindex="0" type="range" value="600" 
+      .items-drop style=(@pp_down ? 'display: block' : '')
+        input.mdl-slider.mdl-js-slider#price-slider max=("#{PriceOption.max_price / 1000}") min="0" tabindex="0" type="range" value=("#{@price_set / 1000}") 
         .slider-price
           span 
             | Hasta CLP $
             span#price-span
-              = PriceOption.max_price / 1000
+              = @price_set / 1000
             | .000
       .word-menu-non.modal__trigger data-modal='#advanced-modal'
         span.small-flex

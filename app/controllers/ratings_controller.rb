@@ -9,7 +9,9 @@ class RatingsController < ApplicationController
 		rating.resource_id = params[:rating][:resource_id]
 		rating.grade = params[:rating][:grade]
 		if rating.save
-			render json: {status: 200, league_info: get_new_info(rating.resource_type, rating.resource_id), }
+			render json: {
+                status: 200, 
+                league_info: get_new_info(rating.resource_type, rating.resource_id) }
 		else
 			render json: {status: 400}
 		end
@@ -28,10 +30,12 @@ class RatingsController < ApplicationController
     		league = League.find(resource_id)
     		league_info[:val] = league.my_rating
     		league_info[:league_name] = league.name
+            league_info[:league_logo] = league.logo
     	elsif resource_type == :cup or resource_type == 'cup'
     		cup = Cup.find(resource_id)
     		league_info[:val] = cup.my_rating
     		league_info[:league_name] = cup.league.name
+            league_info[:league_logo] = cup.league.logo
     	end
     	return league_info
 

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :check_day_params ,:check_aop_params, :counties_to_show, :switch_on
+  before_filter :check_day_params ,:check_aop_params, :counties_to_show, :switch_on, :check_price_params
 
   layout :layout_by_resource
 
@@ -59,6 +59,16 @@ class ApplicationController < ActionController::Base
       else
         @counties[county.name] = false;
       end
+    end
+  end
+
+  def check_price_params
+    @price_set = PriceOption.max_price
+    @pp_down = false
+    if params[:price] and params[:price] != ''
+      @pp_down = true
+      @price_set = params[:price].to_i
+
     end
   end
 

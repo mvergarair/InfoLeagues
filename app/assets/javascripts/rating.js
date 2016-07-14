@@ -64,6 +64,7 @@ var ready = function() {
 	});
 
 	$('form').bind("ajax:success", function( e , data ) {
+		$('#comment-image').attr('src' , data.league_info.league_logo);
 		$(this).children().last().children().last().children().first().hide();
 		$(this).children().last().children().last().children().first().next().show();
 		rateDiv = $(this).children().last();
