@@ -94,7 +94,7 @@
                                 i.material-icons.m-r03em timer
                                 span.info-span
                                   | Tiempo de juego: 
-                                  b = cup.half_time * 2
+                                  b = cup.half_time ? cup.half_time * 2 : 'N/A'
                                   |  minutos 
           .card-bottom
 .pagination-cont

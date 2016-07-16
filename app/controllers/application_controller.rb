@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   layout :layout_by_resource
 
+
+
   def download_attachment
       redirect_to params[:model].titleize.constantize.find(params[:id]).send(params[:attribute]).expiring_url(10)
   end
