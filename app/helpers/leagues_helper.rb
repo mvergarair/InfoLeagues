@@ -31,7 +31,7 @@ module LeaguesHelper
 			"symbol-2.svg"
 		when "viernes"
 			"interface.svg"
-		when "sabado"
+		when "sábado"
 			"tool.svg"
 		when "domingo"
 			"time.svg"

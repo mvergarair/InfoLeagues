@@ -55,6 +55,8 @@
                                   = image_tag 'speed-meter.svg', style: 'max-width: 20px; margin-right: 0.3em;'
                                   - if cup.age == 'toda_edad'
                                     | S/R
+                                  - elsif cup.age == 'supersenior'
+                                    | SSenior
                                   - else
                                     = cup.age.capitalize
                                 .sex-info.info style='border: none; '

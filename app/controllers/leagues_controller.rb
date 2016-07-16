@@ -37,7 +37,7 @@ class LeaguesController < ApplicationController
 			@leagues = @leagues.where( name: params[:search])
 		end
 
-		@leagues = @leagues.paginate(:page => params[:page], :per_page => 10)
+		@leagues = @leagues.paginate(:page => params[:page], :per_page => 8)
 
 		@leagues = @leagues.order(uses_liga_fc: :desc)
 
