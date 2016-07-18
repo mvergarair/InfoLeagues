@@ -29,6 +29,8 @@ class League < ActiveRecord::Base
 
 	has_many :cups
 	belongs_to :county
+
+
 	extend WillPaginate
 
 
