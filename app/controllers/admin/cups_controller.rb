@@ -23,7 +23,7 @@ module Admin
         end
 
         if cup.league.cups.count >= 1
-            cup = Cup.new(cup.league.cups.first.attributes)
+            cup = Cup.new(cup.league.cups.last.attributes)
             cup.day = nil 
             cup.price_options.each do |po|
                 po.id = nil
