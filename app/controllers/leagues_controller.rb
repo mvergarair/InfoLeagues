@@ -37,10 +37,12 @@ class LeaguesController < ApplicationController
 			@leagues = @leagues.where( name: params[:search])
 		end
 
-		@leagues = @leagues.paginate(:page => params[:page], :per_page => 8)
+		@leagues = @leagues.paginate(:page => params[:page], :per_page => 3)
 
-		# @leagues = @leagues.order(uses_liga_fc: :desc)
-		@leagues = @leagues.order("RANDOM()")
+		@leagues = @leagues.order(uses_liga_fc: :desc)
+		# if not params[:page]
+		# 	@leagues = @leagues.order("RANDOM()")
+		# end
 
 		# if not Rails.env.development?
 		# 	@leagues = 
