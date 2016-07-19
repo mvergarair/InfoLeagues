@@ -23,12 +23,15 @@ module Admin
         end
 
         if cup.league.cups.count >= 1
-            cup = Cup.new(cup.league.cups.first.attributes)
+            cup = Cup.new(cup.league.cups.last.attributes)
             cup.day = nil 
             cup.price_options.each do |po|
                 po.id = nil
             end
-            flash[:alert] = "Asegúrese de cambiar el día de la copa. Si todo lo demás es igual, está listo."
+            cup.prize_options.each do |po|
+                po.id = nil
+            end
+            flash[:alert] = "Asegúrese de cambiar los atributos que cambian entre las copas. Si todo lo demás es igual, está listo."
         end
         render locals: {
             page: Administrate::Page::Form.new(dashboard, cup),

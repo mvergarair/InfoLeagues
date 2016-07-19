@@ -1,0 +1,65 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+
+.page-content{
+	.large-card1{
+		height: 40vh;
+		width: 100%;
+		margin: 10vh 0 0 0;
+		box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12);
+    	border-radius: 4px;
+		.small-flex{
+			.first{
+				border-right: 1px solid white;
+				text-align: right;
+			}
+			.itm{
+				flex: 1;
+				padding: 1em;
+				.pr{
+					padding-right: 5em;
+				}
+				p{
+					color: white;
+					font-weight: 100;
+					font-size: 1.2em;
+					font-family: 'Roboto' , 'Helvetica'
+				}
+				img{
+					max-width: 240px;
+				}
+			}
+		}
+	}	
+}
+
+@media screen and (max-width: 680px){
+	.page-content{
+		.large-card1{
+			margin-top: 0.2em;
+			height: 80vh;
+			.small-flex{
+				flex-direction: column;
+				justify-content: space-around;
+				.first{
+					margin-top: 2em;	
+					border-right: none;
+					text-align: center;
+				}
+				.itm{
+					flex: 0;
+					.pr{
+						padding-right: 0em;
+
+					}	
+					p{
+						text-align: center;
+						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
+}

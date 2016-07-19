@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# ruby '2.2.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
@@ -33,7 +34,7 @@ gem 'paperclip', :git=> 'https://github.com/thoughtbot/paperclip', :ref => '523b
 gem 'aws-sdk', '< 2.0'
 gem 'aws-sdk-v1'
 gem 'administrate'
-gem "administrate-field-nested_has_many",  "~> 0.0.2"
+gem "administrate-field-nested_has_many",  git: "https://github.com/mvergarair/administrate-field-nested_has_many.git"
 gem "browserify-rails"
 gem 'slim'
 gem 'twitter'

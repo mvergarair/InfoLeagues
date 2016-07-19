@@ -8,13 +8,14 @@ Rails.application.routes.draw do
     resources :counties
     resources :locations
     resources :price_options
+    resources :prize_options
     resources :users,  except: [:new]
 
     root to: "leagues#index"
   end
   get 'file/:model/:id/:attribute', to: 'application#download_attachment', as: 'download_attachment'
 
-  root 'leagues#index'
+  
   resources :counties, only: [:index]
   resources :ratings, only: [:create]
   resources :leagues, only: [:index, :show] do
@@ -22,6 +23,9 @@ Rails.application.routes.draw do
   end
   get :twitter_search, to: 'leagues#twitter_search'
   get :closest_counties , to: 'counties#closest_counties'
+
+  get '/welcome', to: 'pages#welcome'
+  root 'pages#welcome'
 
 
 end

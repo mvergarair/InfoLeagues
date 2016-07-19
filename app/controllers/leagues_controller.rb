@@ -6,6 +6,11 @@ class LeaguesController < ApplicationController
 		@leagues = League.all
 		@rating = Rating.new
 
+		#uses liga fc filter
+		if params[:uses_liga_fc] and params[:uses_liga_fc] != ''
+			@leagues = @leagues.where(uses_liga_fc: true)
+		end
+
 		#day filter
 		if not (params[:day] == nil or params[:day] == '')
 			@leagues = @leagues.where(id: Cup.where(day: day_array(params[:day].split(','))).map{|cup| cup.league.id})
@@ -32,9 +37,16 @@ class LeaguesController < ApplicationController
 			@leagues = @leagues.where( name: params[:search])
 		end
 
-		@leagues = @leagues.paginate(:page => params[:page], :per_page => 10)
+		@leagues = @leagues.paginate(:page => params[:page], :per_page => 8)
 
 		@leagues = @leagues.order(uses_liga_fc: :desc)
+		# if not params[:page]
+		# 	@leagues = @leagues.order("RANDOM()")
+		# end
+
+		# if not Rails.env.development?
+		# 	@leagues = 
+		# end
 
 	end
 

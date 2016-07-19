@@ -19,6 +19,7 @@
 #  uses_liga_fc      :boolean          default(FALSE)
 #  min_price         :integer
 #  county_id         :integer
+#  slug              :string
 #
 
 class League < ActiveRecord::Base
@@ -31,6 +32,8 @@ class League < ActiveRecord::Base
 
 	has_many :cups
 	belongs_to :county
+
+
 	extend WillPaginate
 
 

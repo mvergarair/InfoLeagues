@@ -12,6 +12,11 @@
   background-color: #F2F2F2;
 }
 
+#map{
+  height: 300px;
+  width: 567px;
+}
+
 .page-content{
     .mdl-button--fab{
       position: fixed;
@@ -117,6 +122,7 @@
           justify-content: center;
           img{
             max-width: 100%;
+            max-height: 220px;
           }
         }
         .card-info{
@@ -192,6 +198,22 @@
               align-items: center;
               margin-left: 0.3em; 
             }
+            .basic-info{
+              font-size: 1em;
+              color: grey;
+              font-weight: 100;
+              display: flex;
+              justify-content: space-between;
+              .item{
+                  
+                .info{
+                  margin-bottom: 0.2em;
+                }
+
+                }
+
+              
+            }
             .location{
               display: flex;
               align-items: center;
@@ -204,6 +226,8 @@
               }
             }
             .level{
+              margin-left: 0.6em;
+              margin-bottom: 0.3em;  
               .small-flex{
                 margin-bottom: 0.1em;
               }
@@ -250,7 +274,13 @@
 }
 // phone screen
 @media screen and (max-width: 680px){
+
+  
   .page-content{
+    #map{
+      height: 300px;
+      width: 300px;
+    }
     padding: 2em 1em;
     .large-card{
       .card-body{
@@ -262,10 +292,14 @@
             border-bottom: 1px solid grey;
             padding-right: 0px;  
             padding-bottom: 3px;  
+            width: 100%;
+            img{
+              max-height: 190px;
+            }
           }
           .card-info{
             flex: 0 1 auto;
-            padding-top: 1em;
+            padding: 1em 0.3em 1em 0.3em;
             .text{
               line-height: 10px;
             }
@@ -277,6 +311,10 @@
               }
             }
             .section {
+              .level{
+                margin-left: 0.3em;
+                margin-bottom: 0.1em;  
+              }
               .price-div{
                 margin-left: 0px;
               }

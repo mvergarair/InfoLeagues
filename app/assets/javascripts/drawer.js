@@ -79,7 +79,7 @@ var ready = function() {
 
 	function handleCountyFinderChange(){
 		$('.county-search').keyup(function(){
-			console.log('change');
+
 			if($(this).val().length == 0){
 				console.log('lenght 0')
 				$('.no-check-county').each(function(){
@@ -99,12 +99,25 @@ var ready = function() {
 		});
 	}
 
+	function handleSwitchChange(){
+		$('#list-switch-1').change(function() {
+			console.log('hoas');
+			if(!$('.mdl-switch').hasClass('is-checked')){
+				$('#uses_liga_fc').val('true');
+			}else{
+				$('#uses_liga_fc').val('');
+			}
+			$('#search_form').submit();
+		});
+	}
+
 	handleDayChange();
 	handleAmountPlayersChange();
 	dropDownInit();
 	sliderChangeHandler();
 	handleCountyChange();
 	handleCountyFinderChange();
+	handleSwitchChange();
 };
 
 

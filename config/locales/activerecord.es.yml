@@ -1,0 +1,44 @@
+es:
+  activerecord:
+    models:
+      league: 'Ligas'
+      cup: 'Copas'
+      county: 'Comuna'
+      location: 'Ubicación'      
+      price_option: 'Opción de precio'
+      prize_option: 'Premio'
+      user: 'Usuario'
+    attributes:
+      league: 
+        name: 'Nombre'
+        phone: 'Teléfono'
+        email: 'Correo'
+        uses_liga_fc: 'Usa liga fc'
+        website_link: 'Link página web'
+        facebook_link: 'Link de Facebook'
+        instagram_link: 'Link de Instagram'
+        twitter_link: 'Link de Twitter'
+      cup:
+        day: 'Día'
+        location_id: 'Club'
+        league_id: 'Liga'
+        amount_of_players: 'Cantidad de Jugadores'
+        amount_of_games: 'Cantidad de Partidos'
+        half_time: 'Duración tiempo'
+        price_options: 'Opciónes de Precio'
+        price_option: 'Opción de Precio'
+      price_option:
+        comment: 'Commentario'
+        price: 'Precio'
+        preinscription_price: 'Precio preinscripción'
+      prize_option: 
+        comment: 'Commentario'
+        prize: 'Premio'
+      location: 
+        name: 'Nombre'
+        address: 'Dirección'
+        county_id: 'Comuna'
+        phone: 'Teléfono'
+        email: 'Correo'
+
+

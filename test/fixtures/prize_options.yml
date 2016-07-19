@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: prize_options
+#
+#  id         :integer          not null, primary key
+#  comment    :string
+#  prize      :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  cup_id     :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  comment: MyString
+  prize: MyString
+
+two:
+  comment: MyString
+  prize: MyString

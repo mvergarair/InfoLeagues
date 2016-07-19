@@ -97,7 +97,7 @@
 		display: none;
 	}
 	.download{
-		margin-top: 80px;
+		margin-top: 60px;
 		margin-left: -10px;
 		display: flex;
 	    justify-content: center;
@@ -135,6 +135,8 @@
 			align-items: center;
 			padding: 10px 0px;
 			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 			&:hover {
 				background-color: grey;
 			}
@@ -148,6 +150,35 @@
 			}
 		}
 
+		.uses{
+			display: flex;
+			cursor: pointer;
+			font-weight: 100;
+			line-height: 1em;
+			justify-content: space-between;
+			align-items: center;
+			padding: 10px 0px;
+			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
+
+
+			.mdl-switch{
+				.is-checked{
+					.mdl-switch__track{
+						background: rgba(75,166,191,0.7);
+					}
+					
+				}
+
+				.mdl-switch__thumb{
+					background: rgb(75, 166, 191);
+				}
+			}
+
+
+		}
+
 		.word-menu {
 			display: flex;
 			cursor: pointer;
@@ -157,6 +188,8 @@
 			align-items: center;
 			padding: 10px 0px;
 			font-size: 1.3em;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 
 			.small-flex{
 				display: flex; 
@@ -180,6 +213,8 @@
 
 			display: none;
 			padding-left: 15px;
+			font-weight: 100;
+    		font-family: 'Roboto', Helvetica;
 
 			.mdl-checkbox {
 				margin-top: 0.3em;
@@ -278,7 +313,7 @@
 		.search-input{
 			width: 100%;
 			box-sizing: border-box;
-			padding: 0.37em 1em 0.37em 1em;
+			padding: 0.37em 0em 0.37em 1em;
 			font-size: 1.1em;
 		    background-color: rgba(255,255,255,0);
 		    border-bottom-right-radius: 2px;
@@ -411,11 +446,30 @@
 	}
 }
 
+#comment-image{
+	padding-right: 1em; border-right: 1px solid grey; max-width: 200px;
+}
+
 
 @media screen and (max-width: 1024px){
 	
 	.mdl-layout__drawer {
 		transform: translateX(-350px);
+	}
+
+	.modal-image{
+		flex-wrap: wrap;
+		p{
+			padding-left: none;
+			padding-top: 1em;
+		}
+		#comment-image{
+			max-width: 100%;
+			border-right: none;
+			border-bottom: 1px solid grey;
+			padding-right: 0px;
+			padding-bottom: 1em;
+		}
 	}
 
 	.mdl-layout__header{

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>LigaFC</title>
+  <title>BuscaLIGA</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,700,700italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -40,13 +40,12 @@
           </div>
         </div>
         <div class="modal__text">
-          <p style="text-align: justify;">Te invitamos a dejar un commentario acerca de la
-          <span id="league-name-text">
-                
-          </span>
-          . Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.</p>
+          <div class='small-flex modal-image'>
+            <img id="comment-image" src="" >
+            <p style="text-align: justify; padding-left: 1em">Te invitamos a dejar un commentario acerca de la liga. Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.</p>
+          </div>
           <div class="modal__input" style="display: flex; align-items: center; ">
-            <img style="border-radius: 100%; max-width: 60px; max-height: 60px; margin-right: 2em;" src=<%= user_signed_in? ? current_user.profile_image_url : '' %> 
+            <img style="border-radius: 100%; max-width: 75px; max-height: 75px; margin-right: 3.5em;" src=<%= user_signed_in? ? current_user.profile_image_url : '' %> 
             >
             <div class="mdl-textfield mdl-js-textfield" style="width: 100%">
               <textarea class="mdl-textfield__input" type="text" rows= "5" id="sample5" ></textarea>

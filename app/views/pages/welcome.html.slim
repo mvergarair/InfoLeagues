@@ -1,0 +1,12 @@
+.large-card1 style='background-color: rgb(30,101,124);'
+  .small-flex style= 'height: 100%; padding: 1em; '
+    .itm.first
+      = image_tag 'logo-dark.png'
+      p 
+        | Busca tu próxima liga.
+    .itm
+      p.pr
+          |Bienvenido al primer buscador de ligas amateur de Chile. Puedes filtrar las ligas utilizando el menu de la esquina superior izquierda de la pantalla.
+    = link_to leagues_path do 
+      button.mdl-button.mdl-js-button style= 'color: white; margin-bottom:4em;'
+        | Múestrame ligas

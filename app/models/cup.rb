@@ -17,19 +17,31 @@
 #  bases_file_size    :integer
 #  bases_updated_at   :datetime
 #  half_time          :integer
+#  amount_of_games    :integer
+#  name               :string
+#  time               :integer
+#  age                :integer          default(0)
+#  sex                :integer          default(0)
 #
 
 class Cup < ActiveRecord::Base
+
+  
 	after_save :update_min_price, :update_league_county
   belongs_to :league
   belongs_to :location
-  has_many :price_options
+  has_many :price_options ,dependent:  :delete_all
+  has_many :prize_options , dependent:  :delete_all 
   accepts_nested_attributes_for :price_options
+  accepts_nested_attributes_for :prize_options
   has_attached_file :bases
 	validates_attachment_content_type :bases, :content_type => ['application/pdf', 'application/msword', 'text/plain']
 
 
-  enum day: [:lunes, :martes, :miercoles, :jueves, :viernes, :sábado, :domingo]
+  enum day: [:lunes, :martes, :miércoles, :jueves, :viernes, :sábado, :domingo]
+  enum time: [:noche, :mañana, :tarde ]
+  enum age: [ :toda_edad, :junior, :escolar,  :senior, :supersenior]
+  enum sex: [:male, :female, :mixta];
 
   def active?
   	start_date < Time.now and Time.now < end_date + 1.week

@@ -23,7 +23,7 @@ module Admin
     
 
     def check_permission
-      permitted_controllers = [:leagues, :cups]
+      permitted_controllers = [:leagues, :cups, :price_options, :prize_options]
       permitted_actions = [:index ,:new, :show, :create, :edit, :update]
 
       if not (permitted_controllers.include?(controller_name.to_sym) or current_user.admin?)
