@@ -8,6 +8,10 @@
   margin-right: 0.3em;
 }
 
+.m-l1em{
+  margin-left: 1em;
+}
+
 .mdl-layout__content{
   background-color: #F2F2F2;
 }
@@ -232,6 +236,29 @@
                 margin-bottom: 0.1em;
               }
             }
+
+            .social{
+              display: flex;
+              align-items: center;
+              // justify-content: space-between;
+              flex-wrap: wrap;
+              color: grey;
+              font-weight: 100;
+              font-size: 1.4em;
+              font-family: 'Roboto', 'Helvetica';
+              margin: 0.5em 0;
+              padding: 0.2em 0;
+              .item-show{
+                display: flex;
+                align-items: center;
+              }
+              .social-icon{
+                text-decoration: none;
+                margin-right: 1em;
+                color: grey;
+                font-size: 1.7em;
+              }
+            }
           }
         }
       }
@@ -311,6 +338,20 @@
               }
             }
             .section {
+              .social{
+                .item-show{
+                  margin: 0.3em 0;
+                }
+
+              }
+              .center{
+                justify-content: center;
+                // margin: 0 0.5em;
+                .social-icon{
+                  margin: 0 0.5em;
+                } 
+              }
+
               .level{
                 margin-left: 0.3em;
                 margin-bottom: 0.1em;  

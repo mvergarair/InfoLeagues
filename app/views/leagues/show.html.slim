@@ -6,7 +6,7 @@
           = image_tag @league.logo.url
       .card-info
         .section
-          h3
+          h2 style='margin: 0.2em 0;'
             =@league.name
           - if @league.uses_liga_fc
             .powered-by
@@ -15,52 +15,39 @@
                   | powered by:
               = image_tag 'dark-logo copy.png'
         = render 'layouts/star_rate', rating: @league.my_rating, resource: @league, resource_type: :league
-        .section style='margin-bottom: 0.1em;'
-          .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
-            .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
-              - @league.sorted_cups.each_with_index do |cup, i|
-                a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("##{cup.day.capitalize}-panel") id=("#{cup.id}")
-                    = cup.day.capitalize
-              i.material-icons id=("#{@league.id}tt-league") style='font-size: 1.1em;'
-                | help 
-              .mdl-tooltip for=("#{@league.id}tt-league")
-                  | Los días que se juega la liga
-            - @league.sorted_cups.each_with_index do |cup, i|
-                .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("#{cup.day.capitalize}-panel")
-                  .section
-                    .level
-                      .small-flex
-                        span.info-span id=("#{cup.id}tt-cup")
-                          | Nivel de juego:
-                        .mdl-tooltip for=("#{cup.id}tt-cup") 
-                            | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
-                      = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
-                  .small-flex style='flex-wrap: wrap; justify-content: space-between'
-                    .item-info
-                      .section
-                        .players
-                          i.material-icons.m-r03em accessibility
-                          span.info-span 
-                            | Jugadores en cancha: 
-                            b
-                              = cup.amount_of_players
-                      .section
-                        .location
-                          i.material-icons.m-r03em location_on
-                          span.info-span
-                            = cup.location.name
-                    .item-info
-                      .section
-                        .price-div
-                          i.material-icons attach_money
-                          span.info-span
-                            | Precio inscripción: 
-                            b = clp_format(@league.min_price)
-                      .section
-                        .half-time
-                          i.material-icons.m-r03em timer
-                          span.info-span
-                            | Tiempo de juego: 
-                            b = cup.half_time * 2
-                            |  minutos 
-    .card-bottom
+        .section style='margin-top: 0.7em; display: block;'
+          .social
+            - if @league.email
+              .item-show
+                i.material-icons.m-r03em mail_outline
+                = @league.email
+            - if @league.phone
+              .item-show.m-l1em
+                i.material-icons.m-r03em
+                  | phone
+                = @league.phone
+          .social.center
+            - if @league.facebook_link
+              = link_to standerdize_url(@league.facebook_link) do
+                i.fa.fa-facebook.social-icon 
+            - if @league.instagram_link
+              = link_to standerdize_url(@league.instagram_link) do
+                i.fa.fa-instagram.social-icon
+            - if @league.twitter_link
+              = link_to standerdize_url(@league.twitter_link) do
+                i.fa.fa-twitter.social-icon
+            - if @league.website_link
+              = link_to standerdize_url(@league.website_link) do
+                i.fa.fa-globe.social-icon
+
+.large-card
+  .section style='margin-bottom: 0.1em;'
+    .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+      .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
+        - @league.sorted_cups.each_with_index do |cup, i|
+          a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
+              = cup.name != nil ? cup.name : cup.day.capitalize
+        i.material-icons id=("#{@league.id}tt-league") style='font-size: 1.1em;'
+          | help 
+        .mdl-tooltip for=("#{@league.id}tt-league")
+            | Las distintas copas de la liga
