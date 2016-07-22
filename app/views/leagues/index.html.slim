@@ -13,7 +13,7 @@
         .card-body
           .card-top
             .card-image
-              a href=("#{league_path(league)}")
+              a href=("#{standerdize_url(league.website_link)}") target='_blank'
                 = image_tag league.logo.url
             .card-info
               .section
