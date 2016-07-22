@@ -1,11 +1,11 @@
 .mdl-layout__drawer
   = link_to leagues_path , method: :get
-    = image_tag 'logo-dark.png', style: 'margin: 2em 10px 1em 10px; max-width: 230px; padding-left: 3.9em;'
+    = image_tag 'logo-dark.png'
     span.mdl-layout-title 
       | Busca tu próxima liga.
       br
       span
-      | Una herramienta de LigaFC.
+      | 
   .filter-container
     .btm-brd
       h4
@@ -16,17 +16,6 @@
         label.mdl-textfield__label for="sample3"
           span Busque ligas
     nav.mdl-navigation
-      .uses
-        span.small-flex
-          i.material-icons style='font-size: 1.5em;'
-            | check
-          span.m-1em
-            | Usa LigaFC
-        label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1" style='width: inherit;'
-          -if @ulfc_open
-            input type="checkbox" id="list-switch-1" class="mdl-switch__input" checked=''
-          -else
-            input type="checkbox" id="list-switch-1" class="mdl-switch__input" 
       .word-menu#days
         span.small-flex
           i.material-icons today
@@ -91,6 +80,17 @@
             span#price-span
               = @price_set / 1000
             | .000
+      .uses
+        span.small-flex
+          i.material-icons style='font-size: 1.5em;'
+            | check
+          span.m-1em
+            | Usa LigaFC
+        label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1" style='width: inherit;'
+          -if @ulfc_open
+            input type="checkbox" id="list-switch-1" class="mdl-switch__input" checked=''
+          -else
+            input type="checkbox" id="list-switch-1" class="mdl-switch__input" 
       .word-menu-non.modal__trigger data-modal='#advanced-modal'
         span.small-flex
           i.material-icons timeline

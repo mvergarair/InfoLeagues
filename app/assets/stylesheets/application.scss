@@ -71,13 +71,17 @@
 
 	a {
 		text-decoration: none;
+		padding: 2em 15px;
+		img{
+			max-width: 275px;
+		}
 	}
 	.mdl-layout-title{
 		font-weight: 100;
 		line-height: 27px;
-		padding-left: 25px;
-		padding-right: 25px;
-		text-align: right;
+		// padding-left: 25px;
+		// padding-right: 25px;
+		text-align: left;
 		margin-bottom: 1em;
 		color: white;
 	}
