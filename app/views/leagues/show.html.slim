@@ -22,23 +22,28 @@
                 i.material-icons.m-r03em mail_outline
                 = @league.email
             - if @league.phone
-              .item-show.m-l1em
+              .item-show.mlv
                 i.material-icons.m-r03em
                   | phone
                 = @league.phone
-          .social.center
-            - if @league.facebook_link
-              = link_to standerdize_url(@league.facebook_link) do
-                i.fa.fa-facebook.social-icon 
-            - if @league.instagram_link
-              = link_to standerdize_url(@league.instagram_link) do
-                i.fa.fa-instagram.social-icon
-            - if @league.twitter_link
-              = link_to standerdize_url(@league.twitter_link) do
-                i.fa.fa-twitter.social-icon
-            - if @league.website_link
-              = link_to standerdize_url(@league.website_link) do
-                i.fa.fa-globe.social-icon
+          .social style='justify-content: space-between; margin: 0;'
+            .center
+              - if @league.facebook_link
+                = link_to standerdize_url(@league.facebook_link) do
+                  i.fa.fa-facebook.social-icon 
+              - if @league.instagram_link
+                = link_to standerdize_url(@league.instagram_link) do
+                  i.fa.fa-instagram.social-icon
+              - if @league.twitter_link
+                = link_to standerdize_url(@league.twitter_link) do
+                  i.fa.fa-twitter.social-icon
+              - if @league.website_link
+                = link_to standerdize_url(@league.website_link) do
+                  i.fa.fa-globe.social-icon
+            a#mailto-a href=("mailto:#{@league.email}?Subject=Inscripción #{@league.name}")
+              button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
+                | ¡ Inscripciones Abiertas !
+
 
 .large-card
   .section style='margin-bottom: 0.1em;'
@@ -51,3 +56,6 @@
           | help 
         .mdl-tooltip for=("#{@league.id}tt-league")
             | Las distintas copas de la liga
+      - @league.sorted_cups.each_with_index do |cup, i|
+        .mdl-tabs__panel class=(i==0 ? 'is-active' : '') id=("cup-#{cup.id}-panel")
+          .section
