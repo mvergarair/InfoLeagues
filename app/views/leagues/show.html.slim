@@ -23,9 +23,10 @@
                 = @league.email
             - if @league.phone
               .item-show.mlv
-                i.material-icons.m-r03em
-                  | phone
-                = @league.phone
+                a href=("tel:#{@league.phone}") style='display: flex; align-items: center; text-decoration: none; color:grey;'
+                  i.material-icons.m-r03em
+                    | phone
+                  = @league.phone
           .social style='justify-content: space-between; margin: 0;'
             .center
               - if @league.facebook_link
@@ -40,7 +41,7 @@
               - if @league.website_link
                 = link_to standerdize_url(@league.website_link) do
                   i.fa.fa-globe.social-icon
-            a#mailto-a href=("mailto:#{@league.email}?Subject=Inscripción #{@league.name}")
+            a#mailto-a href=("mailto:#{@league.email}?Subject=Inscripción #{@league.name}&Body=Encontré esta liga gracias a BuscaLIGA.cl")
               button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                 | ¡ Inscripciones Abiertas !
 

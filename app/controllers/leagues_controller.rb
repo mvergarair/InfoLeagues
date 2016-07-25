@@ -35,11 +35,16 @@ class LeaguesController < ApplicationController
 		#name filter
 		if not (params[:search] == '' or params[:search] == nil)
 			@leagues = @leagues.where( name: params[:search])
+			if @leagues.count ==1
+				redirect_to league_path @leagues.first and return;
+			end
 		end
 
 		@leagues = @leagues.paginate(:page => params[:page], :per_page => 8)
 
 		@leagues = @leagues.order(uses_liga_fc: :desc)
+
+
 		# if not params[:page]
 		# 	@leagues = @leagues.order("RANDOM()")
 		# end
