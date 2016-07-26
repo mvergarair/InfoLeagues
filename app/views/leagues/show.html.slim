@@ -41,7 +41,7 @@
               - if @league.website_link
                 = link_to standerdize_url(@league.website_link) do
                   i.fa.fa-globe.social-icon
-            a#mailto-a href=("mailto:#{@league.email}?Subject=Inscripción #{@league.name}&Body=Encontré esta liga gracias a BuscaLIGA.cl")
+            a#mailto-a href=("mailto:#{@league.email}?Subject=Inscripción #{@league.name}&Body=Encontré esta liga gracias a BuscaLIGA.cl") target='_blank'
               button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect"
                 | ¡ Inscripciones Abiertas !
 
