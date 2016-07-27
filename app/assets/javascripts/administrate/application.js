@@ -52,21 +52,22 @@ var ready = function() {
         //facebook call
         var urlCall = "/search?q="+ $('#league_name').val() + "&type=page&access_token=1756018021309970|ddll514iir8TI0cmv1oGlWijkO4";
         FB.api(urlCall, function(response) {
-          console.log(response);
+          // console.log(response);
           if(response.data.length != 0){
             $('#league_facebook_link').val("https://www.facebook.com/" + response.data[0].id);
             $('#facebook_link').attr("href", "https://www.facebook.com/" + response.data[0].id);
           }
         });
 
-        //instagram call
-        // var instagramCall = "https://api.instagram.com/v1/users/search?q=" + $('#league_name').val() + "&access_token=15557922.1677ed0.55a4d614cb4a4bbbbaf48eb2894ad43c&scope=basic+public_content+likes+comments"
+        // instagram call
+        // var instagramCall = "https://www.instagram.com/web/search/topsearch/?&query=" + $('#league_name').val();
         // $.ajax({
         //   url: instagramCall,
         //   dataType: 'jsonp',
         //   context: document.body,
         //   success: function(data){
-        //     console.log(data);
+        //     // console.log(data);
+        //     console.log(data.users[0]);
         //     $('#league_instagram_link').val("https://www.instagram.com/" + data.data[0].username);
         //     $('#instagram_link').attr("href","https://www.instagram.com/" + data.data[0].username);
         //   }
