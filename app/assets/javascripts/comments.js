@@ -8,6 +8,14 @@ var ready = function() {
 
 	$('#comment-form').bind("ajax:success", function( e , data ) {
 	});
+
+	$('#comment_text').keyup(function(){
+		if ($('#comment_text').val().length >=1){
+			$('#button-send').removeClass('mdl-button--disabled');
+		}else{
+			$('#button-send').addClass('mdl-button--disabled');
+		}
+	});
 }
 
 $(document).on('turbolinks:load', ready);
