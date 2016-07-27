@@ -121,29 +121,30 @@
           | Cerrar
 
 #comment-modal.modal.modal__bg
-  .modal__dialog
-    .modal__content
-      .modal__header style=("background-color: rgb(30),101,124);" 
-        .modal__title
-          h2.modal__title-text.m-1em style=("color: white") 
-            i.material-icons comment
-            span.m-1em ¡Gracias por tu evaluación!
-      .modal__text
-        .small-flex.modal-image
-          img#comment-image src="" 
-          p style=("text-align: justify; padding-left: 1em")  Te invitamos a dejar un commentario acerca de la liga. Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.
-        .modal__input style=("display: flex; align-items: center; ") 
-          img style="border-radius: 100%; max-width: 75px; max-height: 75px; margin-right: 3.5em;" src=(user_signed_in? ? current_user.profile_image_url : '')
-          .mdl-textfield.mdl-js-textfield style=("width: 100%") 
-            textarea#sample5.mdl-textfield__input rows="5" type="text" 
-            label.mdl-textfield__label for="sample5"  Text lines...
-      .modal__footer
-        a.mdl-button.mdl-button--colored.mdl-js-button
-          | Enviar comentario
-        a#modal-comment-close.mdl-button.mdl-button--colored.mdl-js-button
-          | Cancelar
-
-
-
+  = form_for @comment, remote: true, html: {id: "comment-form"} 
+    =hidden_field :comment, :resource_type 
+    =hidden_field :comment, :resource_id 
+    .modal__dialog
+      .modal__content
+        .modal__header style=("background-color: rgb(30,101,124);")
+          .modal__title
+            h2.modal__title-text.m-1em style=("color: white") 
+              i.material-icons comment
+              span.m-1em ¡Gracias por tu evaluación!
+        .modal__text
+          .small-flex.modal-image
+            img#comment-image 
+            p style=("text-align: justify; padding-left: 1em")  Te invitamos a dejar un commentario acerca de la liga. Puedes incluir detalles del nivel de juego, infraestructura de la liga, organización, administración y del ambiente.
+          .modal__input style=("display: flex; align-items: center; ") 
+            img style="border-radius: 100%; max-width: 75px; max-height: 75px; margin-right: 3.5em;" src=(user_signed_in? ? current_user.profile_image_url : '')
+            .mdl-textfield.mdl-js-textfield style=("width: 100%") 
+              /textarea#sample5.mdl-textfield__input rows="5" type="text" 
+              = text_area :comment, :text, class: 'mdl-textfield__input', rows: '5'
+              label.mdl-textfield__label for="comment_text"  Ingresar Texto...
+        .modal__footer
+          a.mdl-button.mdl-button--colored.mdl-js-button#button-send
+            | Enviar comentario
+          a#modal-comment-close.mdl-button.mdl-button--colored.mdl-js-button
+            | Cancelar
 
 = javascript_include_tag  "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFHR3xPiLysi4bha-_kHnLoSQdjvwFRqY&callback=initMap", async: true, defer: true, 'data-turbolinks-eval' => 'false'

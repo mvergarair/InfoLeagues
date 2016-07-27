@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   
   resources :counties, only: [:index]
   resources :ratings, only: [:create]
+  resources :comments, only: [:create]
   resources :leagues, only: [:index] do
     get :autocomplete_league_name, :on => :collection
   end
