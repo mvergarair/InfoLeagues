@@ -63,8 +63,11 @@ var ready = function() {
 		$('#comment-modal').children().children().first().removeClass('modal__content--active');
 	});
 
-	$('form').bind("ajax:success", function( e , data ) {
+	$('.rate-form').bind("ajax:success", function( e , data ) {
+
 		$('#comment-image').attr('src' , data.league_info.league_logo);
+		$('#comment_resource_id').val(data.league_info.league_id);
+		$('#comment_resource_type').val("league");
 		$(this).children().last().children().last().children().first().hide();
 		$(this).children().last().children().last().children().first().next().show();
 		rateDiv = $(this).children().last();
@@ -75,7 +78,7 @@ var ready = function() {
 		}else{
 			paintStars(data.league_info.val, rateDiv.attr('data-id'));
 		}
-		console.log(data);
+		// console.log(data);
 		rateDiv.children().last().children().first().next().text('(tu evaluacion: '+ data.league_info.val + ')');
 		toolTip = rateDiv.children().last().children().last();
 		toolTipText = toolTip.text()
@@ -83,8 +86,11 @@ var ready = function() {
 		toolTip.text((toolTipTextNum + 1) + " evaluaciones");
 		$('#league-name-text').text(data.league_info.league_name)
 		$('#comment-modal').addClass('modal--active');
-		$('#comment-modal').children().children().first().addClass('modal__content--active');
+		$('#comment-modal').children().children().children().first().addClass('modal__content--active');
 
+	});
+
+	$('#button-send').click(function(){
 	});
 
 	function paintStars(rating, hoveredResource){
