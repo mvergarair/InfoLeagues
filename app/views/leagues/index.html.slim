@@ -30,7 +30,7 @@
                 .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
                   .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center;'
                     - league.sorted_cups.each_with_index do |cup, i|
-                      a.mdl-tabs__tab class=(i ==0 ? 'is-active' : '') href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
+                      a.mdl-tabs__tab class=(cup.is_female? ? (i== 0 ? 'is-active is-female' : 'is-female') : (i == 0 ? 'is-active': '')) href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
                           = cup.name != nil ? cup.name : cup.day.capitalize
                     i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
                       | help 
@@ -61,9 +61,9 @@
                                     = cup.age.capitalize
                                 .sex-info.info style='border: none; '
                                   - if cup.sex == "male"
-                                    i.fa.fa-male.m-r03em style='font-size: 20px; margin-right: 0.7em;'
+                                    i.fa.fa-male.m-r03em style='font-size: 20px; margin-right: 0.6em;'
                                   - else
-                                    i.fa.fa-female.m-r03em style='font-size: 20px; margin-right: 0.7em;'
+                                    i.fa.fa-female.m-r03em style='font-size: 20px; margin-right: 0.6em; color: #E91E63;'
                                   = cup.sex.capitalize
                             .section
                               .players
@@ -95,9 +95,8 @@
                               .half-time
                                 i.material-icons.m-r03em timer
                                 span.info-span
-                                  | Tiempo de juego: 
-                                  b = cup.half_time ? cup.half_time * 2 : 'N/A'
-                                  |  minutos 
+                                  | Cantidad de Partidos: 
+                                  b = cup.amount_of_games ? cup.amount_of_games : 'N/A'
           .card-bottom
 .pagination-cont
   .pagination
