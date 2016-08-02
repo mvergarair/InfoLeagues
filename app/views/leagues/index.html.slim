@@ -84,7 +84,7 @@
                                   | Nivel de juego:
                                 .mdl-tooltip for=("#{cup.id}tt-cup") 
                                     | Esta evaluación es el nivel de competitividad de la liga siendo 5 balones muy competitiva y 0 balones poco competitiva.
-                              = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup
+                              = render 'layouts/level_rate', rating: cup.my_rating, resource: cup, resource_type: :cup, rate_is_under: false
                             .section
                               .price-div
                                 i.material-icons attach_money

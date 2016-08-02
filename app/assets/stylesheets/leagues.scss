@@ -102,6 +102,24 @@
     margin-bottom: 2em;
     background-color: #FFFFFF;
 
+    .abnb{
+
+      border-bottom: 1px solid #e0e0e0;
+      padding: 1.2em 0em 0em 0em;
+      .row-title{
+        color: $dark-blue-color;
+        font-size: 1.2em;
+        font-weight: 300;
+        // margin-left: 1em;
+      }
+      .info-show{
+        color: grey;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.4em;
+      }
+    }
+
 
     .card-toolbar{
       display: flex;
@@ -156,6 +174,7 @@
           }
           .mdl-tabs__panel{
             padding: 0.4em;
+            
           }
           img.raty-cancel {
             display: none;
@@ -333,6 +352,14 @@
     }
     padding: 2em 1em;
     .large-card{
+
+      .abnb{
+
+        .row-title{
+          margin-left: 0px;
+          margin-bottom: 1em;
+        }
+      }
       .card-body{
         .card-top{
           flex-wrap: wrap;
