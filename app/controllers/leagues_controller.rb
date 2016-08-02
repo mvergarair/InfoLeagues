@@ -5,6 +5,7 @@ class LeaguesController < ApplicationController
 	def index
 		@leagues = League.all
 		@rating = Rating.new
+		@comment = Comment.new
 
 		#uses liga fc filter
 		if params[:uses_liga_fc] and params[:uses_liga_fc] != ''

@@ -75,6 +75,10 @@ class Cup < ActiveRecord::Base
 		self.league.update(min_price: self.price_options.minimum(:price))
 	end
 
+	def is_female?
+		self.sex == 'female'
+	end
+
 	def price_to_show
 		if self.price_options.count > 0
 			if self.price_options.where(comment: 'Equipo Nuevo').count > 0

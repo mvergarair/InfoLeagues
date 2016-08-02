@@ -31,11 +31,13 @@ class RatingsController < ApplicationController
     		league_info[:val] = league.my_rating
     		league_info[:league_name] = league.name
             league_info[:league_logo] = league.logo
+            league_info[:league_id] = league.id
     	elsif resource_type == :cup or resource_type == 'cup'
     		cup = Cup.find(resource_id)
     		league_info[:val] = cup.my_rating
     		league_info[:league_name] = cup.league.name
             league_info[:league_logo] = cup.league.logo
+            league_info[:league_id] = cup.league.id
     	end
     	return league_info
 

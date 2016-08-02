@@ -20,6 +20,13 @@
   height: 300px;
   width: 567px;
 }
+.is-female{
+  color: black;
+}
+.mdl-tabs.is-upgraded .mdl-tabs__tab.is-female:after{
+  background: #E91E63 !important;
+}
+
 
 .page-content{
     .mdl-button--fab{
@@ -74,6 +81,16 @@
         &:hover{
           background-color: $light-blue-color;
           color: white;
+        }
+      }
+    }
+  }
+
+  .mdl-tabs{
+    .is-upgraded {
+      .mdl-tabs__tab{
+        .is-female::after{
+          background: #E91E63 !important ;
         }
       }
     }
