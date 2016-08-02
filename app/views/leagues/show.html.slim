@@ -114,11 +114,40 @@
                     | Cantidad de Partidos: 
                     b
                       = cup.amount_of_games
-          .abnb.mdl-grid
-            .mdl-cell.mdl-cell--3-col.row-title
-              | Precios
-            .mdl-cell.mdl-cell--9-col
-          .abnb.mdl-grid
-            .mdl-cell.mdl-cell--3-col.row-title
-              | Premios
-            .mdl-cell.mdl-cell--9-col
+          - if cup.prize_options.count >= 1
+            .abnb.mdl-grid
+              .mdl-cell.mdl-cell--2-col.row-title
+                | Precios
+              .mdl-cell.mdl-cell--10-col style='padding: 0px; margin: 0px'
+                .mdl-grid style='margin: 0px; padding: 0px;'
+                  - cup.price_options.each do |po|
+                    .mdl-cell.mdl-cell--6-col
+                      .info-show
+                        i.material-icons attach_money
+                        span
+                          = "#{po.comment}: "
+                          b 
+                            = clp_format(po.price)
+                      .info-show
+                        i.material-icons attach_money
+                        span
+                          | Precio preinscripción: 
+                          b 
+                            = clp_format(po.preinscription_price)
+          - if cup.prize_options.count >=1
+            .abnb.mdl-grid
+              .mdl-cell.mdl-cell--2-col.row-title
+                | Premios
+              .mdl-cell.mdl-cell--10-col style='padding: 0px; margin: 0px'
+                .mdl-grid style='margin: 0px; padding: 0px;'
+                  -cup.prize_options.each do |po|
+                    .mdl-cell.mdl-cell--4-col
+                      .info-show style='margin-bottom: 0px;'
+                        i.fa.fa-trophy.m-r03em style=(po.comment ? (po.comment.downcase.include?('oro')) ? 'color: #daf9d00; font-size: 1.4em' : 'font-size: 1.2em;' : 'font-size: 1.2em;')
+                        div 
+                          = "#{po.comment}:"
+                      .info-ui
+                        ul
+                          -po.prize.split('+').each do |p|
+                            li
+                              = p
