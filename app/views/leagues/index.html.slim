@@ -35,7 +35,7 @@
                           = cup.name != nil ? cup.name : cup.day.capitalize
                     - else 
                       - league.sorted_cups.each_with_index do |cup, i|
-                        a.mdl-tabs__tab class=(cup.is_female? ? (i== 0 ? 'is-active is-female fixed-width' : 'is-female fixed-width') : (i == 0 ? 'is-active fixed-width': '')) href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
+                        a.mdl-tabs__tab class=(cup.is_female? ? (i== 0 ? 'is-active is-female fixed-width' : 'is-female fixed-width') : (i == 0 ? 'is-active fixed-width': 'fixed-width')) href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
                           = cup.name != nil ? cup.name : cup.day.capitalize
                     i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
                       | help 
