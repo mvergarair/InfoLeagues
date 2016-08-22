@@ -28,12 +28,13 @@
               = render 'layouts/star_rate', rating: league.my_rating, resource: league, resource_type: :league
               .section style='margin-bottom: 0.1em;'
                 .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
-                  .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center; overflow-x: auto;'
-                    - league.sorted_cups.each_with_index do |cup, i|
-                      -if league.sorted_cups.count < 3
+                  .mdl-tabs__tab-bar style='justify-content: flex-start; align-items: center; overflow-x: auto; max-width: 400px;'
+                    -if league.sorted_cups.count < 4
+                      - league.sorted_cups.each_with_index do |cup, i|
                         a.mdl-tabs__tab class=(cup.is_female? ? (i== 0 ? 'is-active is-female' : 'is-female') : (i == 0 ? 'is-active': '')) href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
                           = cup.name != nil ? cup.name : cup.day.capitalize
-                      - else 
+                    - else 
+                      - league.sorted_cups.each_with_index do |cup, i|
                         a.mdl-tabs__tab class=(cup.is_female? ? (i== 0 ? 'is-active is-female fixed-width' : 'is-female fixed-width') : (i == 0 ? 'is-active fixed-width': '')) href=("#cup-#{cup.id}-panel") id=("#{cup.id}")
                           = cup.name != nil ? cup.name : cup.day.capitalize
                     i.material-icons id=("#{league.id}tt-league") style='font-size: 1.1em;'
